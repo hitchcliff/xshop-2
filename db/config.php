@@ -13,7 +13,7 @@ try {
 }
 
 define("BASE_URL", "http://localhost/xshop-2-admin/");
-define("ADMIN_URL", BASE_URL . "dashboard/");
+define("ADMIN_URL", BASE_URL . "admin/");
 
 define("SMTP_HOST", "sandbox.smtp.mailtrap.io");
 define("SMTP_PORT", "587");
