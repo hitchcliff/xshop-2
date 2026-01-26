@@ -6,9 +6,46 @@ include('./components/header.php');
 
 if (isset($_POST['form_login'])) {
     try {
-        if ($_POST['email'] == "") {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        if ($email == "") {
             throw new Exception('Email cannot be empty');
         }
+
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            throw new Exception('Email is invalid');
+        }
+
+        if ($password == '') {
+            throw new Exception('Password cannot be empty');
+        }
+
+        // check database
+
+        $sql = "SELECT * FROM users WHERE email='{$email}' AND role='admin'";
+        $query = $pdo->query($sql);
+
+        if ($query->rowCount() <= 0) {
+
+            throw new Exception("Account doesn't exists");
+
+        }
+
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($result as $row) {
+            if (!password_verify($password, $row["password"])) {
+                throw new Exception("Wrong password");
+            } else {
+                $_SESSION["admin"] = $row;
+                $redirectUrl = ADMIN_URL . "dashboard.php";
+                header("Location: $redirectUrl");
+            }
+        }
+
+
+
     } catch (\Throwable $th) {
         $error_message = $th->getMessage();
     }
