@@ -1,6 +1,18 @@
-<?php include('./components/header.php') ?>
-<?php include('./components/nav.php') ?>
-<?php include('./components/sidebar.php') ?>
+<?php
+
+include('./components/header.php');
+include('./components/nav.php');
+include('./components/sidebar.php');
+
+if (!isset($_SESSION['admin'])) {
+
+    $redirectUrl = ADMIN_URL . "login.php";
+
+    header("Location: $redirectUrl");
+}
+
+?>
+
 
 <div class="main-content">
     <section class="section">
