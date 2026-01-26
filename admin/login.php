@@ -4,6 +4,11 @@ include('./components/header.php');
 
 // echo $_SERVER;
 
+if (isset($_SESSION['admin'])) {
+    $dashboardUrl = ADMIN_URL . "dashboard.php";
+    header("Location: $dashboardUrl");
+}
+
 if (isset($_POST['form_login'])) {
     try {
         $email = $_POST['email'];
