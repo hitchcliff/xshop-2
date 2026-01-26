@@ -53,6 +53,10 @@ include('../db/config.php');
     <script src="<?php echo ADMIN_URL; ?>dist/js/air-datepicker.min.js"></script>
     <script src="<?php echo ADMIN_URL; ?>dist/tinymce/tinymce.min.js"></script>
     <script src="<?php echo ADMIN_URL; ?>dist/js/bootstrap4-toggle.min.js"></script>
+
+    <!-- Google Font icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo ADMIN_URL; ?>css/utilities.css" />
 </head>
 
 <body>

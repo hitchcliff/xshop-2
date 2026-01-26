@@ -1,4 +1,21 @@
-<?php include('./components/header.php') ?>
+<?php
+
+include('./components/header.php');
+
+// echo $_SERVER;
+
+if (isset($_POST['form_login'])) {
+    try {
+        if ($_POST['email'] == "") {
+            throw new Exception('Email cannot be empty');
+        }
+    } catch (\Throwable $th) {
+        $error_message = $th->getMessage();
+    }
+
+}
+
+?>
 
 <section class="section">
     <div class="container container-login">
@@ -9,7 +26,18 @@
                         <h4 class="text-center">Admin Panel Login</h4>
                     </div>
                     <div class="card-body card-body-auth">
-                        <form method="POST" action="index.html">
+
+                        <?php if (isset($error_message)) { ?>
+                            <span class="text-danger d-flex align-items-center gap-1 mb-2">
+                                <span class="material-icons">error</span>
+                                <?= $error_message; ?>
+                            </span>
+
+                        <?php } ?>
+
+
+
+                        <form method="post">
                             <div class="form-group">
                                 <input type="email" class="form-control" name="email" placeholder="Email Address"
                                     value="" autofocus>
@@ -18,7 +46,7 @@
                                 <input type="password" class="form-control" name="password" placeholder="Password">
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-lg w_100_p">
+                                <button type="submit" class="btn btn-primary btn-lg w_100_p" name="form_login">
                                     Login
                                 </button>
                             </div>
