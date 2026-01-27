@@ -77,8 +77,6 @@ if (isset($_POST['form_login'])) {
 
                         <?php } ?>
 
-
-
                         <form method="post">
                             <div class="form-group">
                                 <input type="email" class="form-control" name="email" placeholder="Email Address"

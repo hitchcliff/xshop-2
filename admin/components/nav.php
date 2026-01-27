@@ -9,12 +9,28 @@
         <li class="nav-link">
             <a href="" target="_blank" class="btn btn-warning">Front End</a>
         </li>
+        <li class="nav-link">
+            <span>Logged in as:
+                <span class="text-capitalize fw-bold">
+                    <?= $_SESSION['admin']['first_name'] ?>
+                </span>
+                <span class="text-capitalize ml-2 fw-bold">
+                    <?= $_SESSION['admin']['last_name'] ?>
+                </span>
+            </span>
+        </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <img alt="image" src="uploads/user.jpg" class="rounded-circle-custom">
+
+                <?php if ($_SESSION['admin']['photo']) { ?>
+                    <img alt="image" src="<?= $_SESSION['admin']['photo'] ?>" class="rounded-circle-custom">
+                <?php } else { ?>
+                    <img alt="image" src="uploads/default.png" class="rounded-circle-custom">
+                <?php } ?>
+
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="profile.html"><i class="far fa-user"></i> Edit Profile</a></li>
+                <li><a class="dropdown-item" href="profile.php"><i class="far fa-user"></i> Edit Profile</a></li>
                 <li><a class="dropdown-item" href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
             </ul>
         </li>
