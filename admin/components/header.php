@@ -6,6 +6,11 @@ session_start();
 
 include('../db/config.php');
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+require "../vendor/autoload.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -61,4 +66,4 @@ include('../db/config.php');
 
 <body>
     <div id="app">
-        <div class="main-wrapper"></div>
+        <div class="main-wrapper">
