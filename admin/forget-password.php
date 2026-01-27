@@ -29,6 +29,11 @@ if (isset($_POST['form_forget_password'])) {
 
         try {
             $token = time();
+
+            // set the token to the user
+            $sql2 = "UPDATE users SET token='$token' WHERE email='$email'";
+            $query2 = $pdo->query($sql2);
+
             // html
             $email_message = '<a href="' . ADMIN_URL . 'reset-password.php?email=' . $email . '&token=' . $token . '">Reset Password</a>';
 
