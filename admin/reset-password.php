@@ -35,7 +35,7 @@ if (isset($_POST["form_forget_password"])) {
         $query2 = $pdo->query($sql2);
 
         if ($query2->rowCount() > 0) {
-            $success_message = "Password changed successfully";
+            $success_message = "Password changed successfully, you can now login with your new password.";
         }
 
     } catch (\Throwable $th) {
@@ -86,6 +86,13 @@ if (isset($_POST["form_forget_password"])) {
                                     name="form_forget_password">
                                     Submit
                                 </button>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    <a href="login.php">
+                                        Login
+                                    </a>
+                                </div>
                             </div>
                         </form>
                     </div>
