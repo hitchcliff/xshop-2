@@ -1,4 +1,6 @@
 <?php
+include('../components/uploads.php');
+
 include('./components/header.php');
 include('./components/nav.php');
 include('./components/sidebar.php');
@@ -20,6 +22,25 @@ if (isset($_POST['form_edit_profile'])) {
         $password = $_POST['password'];
         $confirm_password = $_POST['confirm_password'];
 
+        // if upload photo
+        $imgs = upload_images($_FILES);
+
+        if (count($imgs) > 0) {
+            $imgs = json_encode($imgs);
+
+            $sqlForUploadingPhoto = "UPDATE users SET photo='$imgs' WHERE id='$user_id'";
+            $resultForUploadingPhoto = $pdo->query($sqlForUploadingPhoto);
+
+            if ($resultForUploadingPhoto->rowCount() > 0) {
+
+                $success_message3 = "Upload photo successfully";
+
+            } else {
+                throw new Exception("Photo upload error");
+            }
+
+        }
+
         // change password
         if (!empty($password) || !empty($confirm_password)) {
             // check if password matches
@@ -37,24 +58,29 @@ if (isset($_POST['form_edit_profile'])) {
             }
         }
 
-        $sql = "UPDATE users SET first_name='$first_name', last_name='$last_name' WHERE id='$user_id'";
-        $result = $pdo->query($sql);
+        // updating either first name or last name
+        if ($first_name != $_SESSION['admin']['first_name'] || $last_name != $_SESSION['admin']['last_name']) {
+            $sql = "UPDATE users SET first_name='$first_name', last_name='$last_name' WHERE id='$user_id'";
+            $result = $pdo->query($sql);
 
-        // success
-        if ($result->rowCount() > 0) {
-            $success_message = "Basic info are updated.";
-            $_SESSION["admin"]["first_name"] = $first_name;
-            $_SESSION["admin"]["last_name"] = $last_name;
-        } else {
-            throw new Exception("Wasn't able to update your basic data");
+            // success
+            if ($result->rowCount() > 0) {
+                $success_message = "Basic info are updated.";
+                $_SESSION["admin"]["first_name"] = $first_name;
+                $_SESSION["admin"]["last_name"] = $last_name;
+            } else {
+                throw new Exception("Wasn't able to update your basic data");
+            }
+
         }
 
-
-        //code...
     } catch (\Throwable $th) {
         $error_message = $th->getMessage();
     }
 }
+
+$admin_photo = get_photo($_SESSION["admin"]["photo"]);
+
 
 ?>
 
@@ -80,6 +106,14 @@ if (isset($_POST['form_edit_profile'])) {
                                     <?= $success_message; ?>
                                 </span>
                             <?php }
+
+                            if (isset($success_message3)) { ?>
+                                <span class="text-success d-flex align-items-center gap-1 mb-2">
+                                    <span class="material-icons">check</span>
+                                    <?= $success_message3; ?>
+                                </span>
+                            <?php }
+
                             if (isset($success_message2)) { ?>
                                 <span class="text-success d-flex align-items-center gap-1 mb-2 block">
                                     <span class="material-icons">check</span>
@@ -93,8 +127,7 @@ if (isset($_POST['form_edit_profile'])) {
                                 <div class="row">
                                     <div class="col-md-3">
                                         <?php if ($_SESSION['admin']['photo']) { ?>
-                                            <img alt="image" src="<?= $_SESSION['admin']['photo'] ?>"
-                                                class="profile-photo w_100_p">
+                                            <img alt="image" src="<?= $admin_photo ?>" class="profile-photo w_100_p">
                                         <?php } else { ?>
                                             <img alt="image" src="uploads/default.png" class="profile-photo w_100_p">
                                         <?php } ?>

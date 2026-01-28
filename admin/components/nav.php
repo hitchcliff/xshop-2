@@ -1,3 +1,9 @@
+<?php
+
+$admin_photo = get_thumb($_SESSION['admin']['photo']);
+
+?>
+
 <div class="navbar-bg"></div>
 <nav class="navbar navbar-expand-lg main-navbar">
     <form class="form-inline mr-auto">
@@ -5,7 +11,7 @@
             <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
         </ul>
     </form>
-    <ul class="navbar-nav navbar-right justify-content-end rightsidetop">
+    <ul class="navbar-nav navbar-right justify-content-end rightsidetop align-items-center">
         <li class="nav-link">
             <a href="" target="_blank" class="btn btn-warning">Front End</a>
         </li>
@@ -23,7 +29,7 @@
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
                 <?php if ($_SESSION['admin']['photo']) { ?>
-                    <img alt="image" src="<?= $_SESSION['admin']['photo'] ?>" class="rounded-circle-custom">
+                    <img alt="image" src="<?= $admin_photo ?>" class="rounded-circle-custom">
                 <?php } else { ?>
                     <img alt="image" src="uploads/default.png" class="rounded-circle-custom">
                 <?php } ?>
