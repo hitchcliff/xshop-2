@@ -8,6 +8,12 @@ include('../db/config.php');
 
 require "../vendor/autoload.php";
 
+include('../components/uploads.php');
+
+
+// get current page e.g., profile.php
+$cur_page = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], "/") + 1);
+
 ?>
 
 <!DOCTYPE html>
@@ -57,8 +63,10 @@ require "../vendor/autoload.php";
     <script src="<?php echo ADMIN_URL; ?>dist/js/bootstrap4-toggle.min.js"></script>
 
     <!-- Google Font icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
     <link rel="stylesheet" href="<?php echo ADMIN_URL; ?>css/utilities.css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <body>

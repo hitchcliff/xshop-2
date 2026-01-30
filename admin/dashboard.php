@@ -10,9 +10,7 @@ if (!isset($_SESSION['admin'])) {
 
     header("Location: $redirectUrl");
 }
-
 ?>
-
 
 <div class="main-content">
     <section class="section">

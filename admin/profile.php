@@ -1,5 +1,4 @@
 <?php
-include('../components/uploads.php');
 
 include('./components/header.php');
 include('./components/nav.php');
@@ -88,6 +87,8 @@ $admin_photo = get_photo($_SESSION["admin"]["photo"]);
     <section class="section">
         <div class="section-header">
             <h1>Edit Profile</h1>
+
+            <span class="material-symbols-outlined">settings</span>
         </div>
         <div class="section-body">
             <div class="row">

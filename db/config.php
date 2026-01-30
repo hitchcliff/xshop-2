@@ -22,3 +22,4 @@ define("SMTP_PASSWORD", "479204d25cd0b0");
 define("SMTP_ENCRYPTION", "tls");
 define("SMTP_FROM", "contact@xshop.com");
 define("SMTP_FROM_NAME", "XSHOP");
+
