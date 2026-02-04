@@ -135,23 +135,23 @@
                 <div class="product-gallery">
                   <div class="product-gallery-preview order-sm-2">
                     <div class="product-gallery-preview-item active" id="first"><img class="image-zoom"
-                        src="dist-front/img/shop/single/gallery/01.jpg" data-zoom="img/shop/single/gallery/01.jpg"
-                        alt="Product image">
+                        src="dist-front/img/shop/single/gallery/01.jpg"
+                        data-zoom="dist-front/img/shop/single/gallery/01.jpg" alt="Product image">
                       <div class="image-zoom-pane"></div>
                     </div>
                     <div class="product-gallery-preview-item" id="second"><img class="image-zoom"
-                        src="dist-front/img/shop/single/gallery/02.jpg" data-zoom="img/shop/single/gallery/02.jpg"
-                        alt="Product image">
+                        src="dist-front/img/shop/single/gallery/02.jpg"
+                        data-zoom="dist-front/img/shop/single/gallery/02.jpg" alt="Product image">
                       <div class="image-zoom-pane"></div>
                     </div>
                     <div class="product-gallery-preview-item" id="third"><img class="image-zoom"
-                        src="dist-front/img/shop/single/gallery/03.jpg" data-zoom="img/shop/single/gallery/03.jpg"
-                        alt="Product image">
+                        src="dist-front/img/shop/single/gallery/03.jpg"
+                        data-zoom="dist-front/img/shop/single/gallery/03.jpg" alt="Product image">
                       <div class="image-zoom-pane"></div>
                     </div>
                     <div class="product-gallery-preview-item" id="fourth"><img class="image-zoom"
-                        src="dist-front/img/shop/single/gallery/04.jpg" data-zoom="img/shop/single/gallery/04.jpg"
-                        alt="Product image">
+                        src="dist-front/img/shop/single/gallery/04.jpg"
+                        data-zoom="dist-front/img/shop/single/gallery/04.jpg" alt="Product image">
                       <div class="image-zoom-pane"></div>
                     </div>
                   </div>
