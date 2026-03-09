@@ -22,11 +22,19 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
     <!-- Vendor Styles including: Font Icons, Plugins, etc.-->
-    <link rel="stylesheet" media="screen" href="dist-front/vendor/simplebar/dist/simplebar.min.css" />
-    <link rel="stylesheet" media="screen" href="dist-front/vendor/tiny-slider/dist/tiny-slider.css" />
-    <link rel="stylesheet" media="screen" href="dist-front/vendor/drift-zoom/dist/drift-basic.min.css" />
+    <link rel="stylesheet" media="screen"
+        href="<?php echo BASE_URL; ?>dist-front/vendor/simplebar/dist/simplebar.min.css" />
+    <link rel="stylesheet" media="screen"
+        href="<?php echo BASE_URL; ?>dist-front/vendor/tiny-slider/dist/tiny-slider.css" />
+    <link rel="stylesheet" media="screen"
+        href="<?php echo BASE_URL; ?>dist-front/vendor/drift-zoom/dist/drift-basic.min.css" />
     <!-- Main Theme Styles + Bootstrap-->
-    <link rel="stylesheet" media="screen" href="dist-front/css/theme.min.css">
+    <link rel="stylesheet" media="screen" href="<?php echo BASE_URL; ?>dist-front/css/theme.min.css">
+
+    <!-- Google Font icons -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
 </head>
 <!-- Body-->
 
