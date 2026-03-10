@@ -10,7 +10,6 @@ if (isset($_POST['form_customer_register'])) {
         $confirmPassword = $_POST['confirm_password'];
 
 
-
         if ($firstName == "") {
             throw new Exception('First name cannot be empty');
         }
@@ -55,32 +54,37 @@ if (isset($_POST['form_customer_register'])) {
         $query2 = $pdo->query($sql2);
 
         if ($query2->rowCount() > 0) {
-            $success_message = "Sucessfully created the user!";
+            // send email activation
+            // $email_message = "Please click the link to activate the account: ";
+            // $email_message = '<a href="' . BASE_URL . 'registe-verify.php?email=' . $email . '&token=' . $token . '">Activate email</a>';
+
+            // $mail = new PHPMailer(true);
+            // $mail->isSMTP();
+            // $mail->Host = SMTP_HOST;
+            // $mail->SMTPAuth = true;
+            // $mail->Username = SMTP_USERNAME;
+            // $mail->Password = SMTP_PASSWORD;
+            // $mail->SMTPSecure = SMTP_ENCRYPTION;
+            // $mail->Port = SMTP_PORT;
+            // $mail->setFrom(SMTP_FROM, SMTP_FROM_NAME);
+            // $mail->addAddress($email);
+            // $mail->isHTML(true);
+            // $mail->Subject = "Account activation";
+            // $mail->Body = $email_message;
+            // $mail->send();
+
+            $success_message = "Activation email has been sent!";
+            $_SESSION['success_message'] = $success_message;
         }
 
 
     } catch (\Throwable $th) {
         $error_message = $th->getMessage();
+        $_SESSION['error_message'] = $error_message;
     }
 }
 
 ?>
-
-<?php if (isset($error_message)) { ?>
-    <span class="text-danger d-flex align-items-center gap-1 mb-2">
-        <span class="material-icons">error</span>
-        <?= $error_message; ?>
-    </span>
-
-<?php } ?>
-
-<?php if (isset($success_message)) { ?>
-    <span class="text-success d-flex align-items-center gap-1 mb-2">
-        <span class="material-icons">check</span>
-        <?= $success_message; ?>
-    </span>
-
-<?php } ?>
 
 <form method="POST" class="needs-validation" novalidate>
 

@@ -1,4 +1,7 @@
-<?php include('./db/config.php') ?>
+<?php
+include('./db/config.php');
+include("./vendor/autoload.php");
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +31,8 @@
         href="<?php echo BASE_URL; ?>dist-front/vendor/tiny-slider/dist/tiny-slider.css" />
     <link rel="stylesheet" media="screen"
         href="<?php echo BASE_URL; ?>dist-front/vendor/drift-zoom/dist/drift-basic.min.css" />
+
+    <link rel="stylesheet" href="<?php echo ADMIN_URL; ?>dist/css/iziToast.min.css">
     <!-- Main Theme Styles + Bootstrap-->
     <link rel="stylesheet" media="screen" href="<?php echo BASE_URL; ?>dist-front/css/theme.min.css">
 
