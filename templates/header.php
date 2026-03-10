@@ -1,4 +1,8 @@
 <?php
+// to make sessions work, very important
+ob_start();
+session_start();
+
 include('./db/config.php');
 include("./vendor/autoload.php");
 ?>

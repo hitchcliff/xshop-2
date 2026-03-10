@@ -1,4 +1,16 @@
-<?php include('./templates/header.php') ?>
+<?php
+
+include('./templates/header.php');
+
+if (!($_GET['email']) || !($_GET['token'])) {
+
+    $redirectUrl = BASE_URL . 'account-signin.php';
+
+    header("Location: $redirectUrl");
+    exit();
+}
+?>
+
 
 <div class="container py-4 py-lg-5 my-4">
     <div class="row">
