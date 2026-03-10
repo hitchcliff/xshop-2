@@ -203,6 +203,7 @@
 <script src="dist-front/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
 <script src="dist-front/vendor/drift-zoom/dist/Drift.min.js"></script>
 <script src="<?php echo ADMIN_URL; ?>dist/js/iziToast.min.js"></script>
+<script src="<?php echo BASE_URL; ?>dist-front/vendor/fontawesome/fontawesome.js"></script>
 <!-- Main theme script-->
 <script src="dist-front/js/theme.min.js"></script>
 

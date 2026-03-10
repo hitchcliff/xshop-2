@@ -31,6 +31,10 @@ include("./vendor/autoload.php");
         href="<?php echo BASE_URL; ?>dist-front/vendor/tiny-slider/dist/tiny-slider.css" />
     <link rel="stylesheet" media="screen"
         href="<?php echo BASE_URL; ?>dist-front/vendor/drift-zoom/dist/drift-basic.min.css" />
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>dist-front/css/font_awesome_5_free.min.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>dist-front/css/fontawesome-iconpicker.min.css">
+    <script src="https://kit.fontawesome.com/d6fd5727ac.js" crossorigin="anonymous"></script>
+
 
     <link rel="stylesheet" href="<?php echo ADMIN_URL; ?>dist/css/iziToast.min.css">
     <!-- Main Theme Styles + Bootstrap-->
