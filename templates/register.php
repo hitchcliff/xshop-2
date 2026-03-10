@@ -61,7 +61,7 @@ if (isset($_POST['form_customer_register'])) {
         if ($query2->rowCount() > 0) {
             // send email activation
             $email_message = "Please click the link to activate the account: ";
-            $email_message = '<a href="' . BASE_URL . 'registe-verify.php?email=' . $email . '&token=' . $token . '">Activate email</a>';
+            $email_message = '<a href="' . BASE_URL . 'register-verify.php?email=' . $email . '&token=' . $token . '">Activate email</a>';
 
             $mail = new PHPMailer(true);
             $mail->isSMTP();
