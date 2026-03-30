@@ -2,7 +2,7 @@
 
 
 if (isset($_SESSION['customer'])) {
-    $url = BASE_URL . "vendor-dashboard.php";
+    $url = BASE_URL . "dashboard.php";
     header("Location: $url");
 }
 
@@ -41,7 +41,7 @@ if (isset($_POST['form_customer_login'])) {
                 throw new Exception("Wrong password");
             } else {
                 $_SESSION["customer"] = $row;
-                $redirectUrl = BASE_URL . "vendor-dashboard.php";
+                $redirectUrl = BASE_URL . "dashboard.php";
                 header("Location: $redirectUrl");
 
             }
