@@ -76,7 +76,7 @@ if (isset($_POST['form_customer_login'])) {
         <div class="form-check">
             <input class="form-check-input" type="checkbox" checked id="remember_me">
             <label class="form-check-label" for="remember_me">Remember me</label>
-        </div><a class="nav-link-inline fs-sm" href="account-password-recovery.html">Forgot password?</a>
+        </div><a class="nav-link-inline fs-sm" href="forget-password.php">Forgot password?</a>
     </div>
     <hr class="mt-4">
     <div class="text-end pt-4">
