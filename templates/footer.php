@@ -197,16 +197,16 @@
         class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon ci-arrow-up">
     </i></a>
 <!-- Vendor scrits: js libraries and plugins-->
-<script src="dist-front/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="dist-front/vendor/simplebar/dist/simplebar.min.js"></script>
-<script src="dist-front/vendor/tiny-slider/dist/min/tiny-slider.js"></script>
-<script src="dist-front/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
-<script src="dist-front/vendor/drift-zoom/dist/Drift.min.js"></script>
-<script src="<?php echo ADMIN_URL; ?>dist/js/iziToast.min.js"></script>
+<script src="<?php echo BASE_URL; ?>dist-front/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="<?php echo BASE_URL; ?>dist-front/vendor/simplebar/dist/simplebar.min.js"></script>
+<script src="<?php echo BASE_URL; ?>dist-front/vendor/tiny-slider/dist/min/tiny-slider.js"></script>
+<script src="<?php echo BASE_URL; ?>dist-front/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+<script src="<?php echo BASE_URL; ?>dist-front/vendor/drift-zoom/dist/Drift.min.js"></script>
 <script src="<?php echo BASE_URL; ?>dist-front/vendor/fontawesome/fontawesome.js"></script>
 <!-- Main theme script-->
 <script src="dist-front/js/theme.min.js"></script>
 
+<script src="<?php echo BASE_URL; ?>dist-front/js/iziToast.min.js"></script>
 <!-- IZI TOAST/CUSTOM ALERT -->
 <?php if (isset($_SESSION['error_message'])): ?>
     <script type="text/javascript">
