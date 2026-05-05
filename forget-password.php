@@ -25,7 +25,7 @@ if (isset($_POST['customer_forget_password'])) {
 
 
     if ($query->rowCount() <= 0) {
-      throw new Exception("Account doesn't exists");
+      throw new Exception("Account does not exists");
     }
 
     $token = time();
@@ -76,7 +76,7 @@ if (isset($_POST['customer_forget_password'])) {
         <li><span class="text-primary me-2">3.</span>Use the code to change your password on our secure website.</li>
       </ol>
       <div class="card py-2 mt-4">
-        <form method="POST" class="card-body needs-validation" novalidate action="">
+        <form method="POST" class="card-body needs-validation" novalidate>
           <div class="mb-3">
             <label class="form-label" for="recover-email">Enter your email address</label>
             <input class="form-control" name="email" type="email" id="recover-email" autofocus required>

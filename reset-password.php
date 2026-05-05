@@ -24,7 +24,7 @@ if (isset($_POST["customer_reset_password"])) {
     }
 
     if ($password != $confirm_password) {
-      throw new Exception("Password doesn't match");
+      throw new Exception("Password does not match");
     }
 
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
