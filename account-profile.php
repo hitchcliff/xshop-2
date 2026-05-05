@@ -26,11 +26,7 @@ if (isset($_SESSION['form_profile'])) {
 
     <!-- Content  -->
     <section class="col-lg-8">
-      <!-- Toolbar-->
-      <div class="d-none d-lg-flex justify-content-between align-items-center pt-lg-3 pb-4 pb-lg-5 mb-lg-3">
-        <h6 class="fs-base text-light mb-0">Update you profile details below:</h6><a class="btn btn-primary btn-sm"
-          href="account-signin.html"><i class="ci-sign-out me-2"></i>Sign out</a>
-      </div>
+
       <!-- Profile form-->
       <form>
         <div class="bg-secondary rounded-3 p-4 mb-4">

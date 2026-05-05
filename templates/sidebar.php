@@ -52,7 +52,7 @@
                 <li class="mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3"
                         href="<?php echo BASE_URL; ?>account-payment.html"><i
                             class="ci-card opacity-60 me-2"></i>Payment methods</a></li>
-                <li class="d-lg-none border-top mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3"
+                <li class="border-top mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3"
                         href="<?php echo BASE_URL; ?>logout.php"><i class="ci-sign-out opacity-60 me-2"></i>Sign out</a>
                 </li>
             </ul>
