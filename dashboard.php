@@ -54,7 +54,7 @@
           </div>
           <ul class="list-unstyled mb-0">
             <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3"
-                href="account-profile.html"><i class="ci-user opacity-60 me-2"></i>Profile info</a></li>
+                href="<?php BASE_URL ?>account-profile.php"><i class="ci-user opacity-60 me-2"></i>Profile info</a></li>
             <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3"
                 href="account-address.html"><i class="ci-location opacity-60 me-2"></i>Addresses</a></li>
             <li class="mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3"
