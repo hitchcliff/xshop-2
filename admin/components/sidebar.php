@@ -18,6 +18,17 @@
                 </a>
             </li>
 
+            <li class="<?php if ($cur_page == "product-category-view.php")
+                echo "active" ?>">
+                    <a class="nav-link" href="<?= ADMIN_URL ?>product-category-view.php">
+
+                    <span class="material-symbols-outlined me-2">topic</span>
+                    <span>Product Categories</span>
+                </a>
+            </li>
+
+
+
             <!-- <li class="nav-item dropdown active">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-hand-point-right"></i><span>Dropdown
                         Items</span></a>

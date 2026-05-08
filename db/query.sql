@@ -27,8 +27,19 @@ CREATE TABLE customers (
     last_name VARCHAR(50) NOT NULL,
     password TEXT,
     email VARCHAR(255) NOT NULL,
+    phone_number VARCHAR(20) NOT NULL,
     photo TEXT NULL,
     token VARCHAR(80) NULL,
     role VARCHAR(255) NOT NULL,
     status VARCHAR(8)
+)
+
+DROP TABLE IF EXISTS product_categories;
+
+CREATE TABLE product_categories (
+    id int AUTO_INCREMENT PRIMARY KEY,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    name VARCHAR(255) NOT NULL,
+    photo TEXT NULL
 )

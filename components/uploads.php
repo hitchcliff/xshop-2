@@ -2,7 +2,7 @@
 
 use stefangabos\Zebra_Image\Zebra_Image;
 
-function upload_images($files)
+function upload_images($files, $size = ["width" => 100, "height" => 100])
 {
     ini_set('memory_limit', '512M');
 
@@ -23,8 +23,8 @@ function upload_images($files)
         ) {
             $ext = pathinfo($file["name"], PATHINFO_EXTENSION);
             $file_name = time() . "-" . rand(0, 10000000000) . '.' . $ext;
-            $destination = 'uploads/' . $file_name;
-            $thumb_destination = 'uploads/' . 'thumb-' . $file_name;
+            $destination = 'uploads/etc/' . $file_name;
+            $thumb_destination = 'uploads/etc/' . 'thumb-' . $file_name;
 
             $res = move_uploaded_file($file['tmp_name'], $destination);
 
@@ -34,7 +34,7 @@ function upload_images($files)
                 return $uploaded_images;
             }
 
-            $thumb_destination = create_thumb(["width" => 100, "height" => 100], $destination, $thumb_destination);
+            $thumb_destination = create_thumb($size, $destination, $thumb_destination);
 
             $img['src'] = $destination;
             $img['thumb'] = $thumb_destination;

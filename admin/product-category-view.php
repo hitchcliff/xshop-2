@@ -4,7 +4,6 @@ include('./components/nav.php');
 include('./components/sidebar.php');
 
 
-$product_categories = [];
 
 if (!isset($_SESSION['admin'])) {
 
@@ -12,12 +11,6 @@ if (!isset($_SESSION['admin'])) {
 
     header("Location: $redirectUrl");
 
-    $sql = "SELECT * FROM product_categories ORDER BY id DESC";
-    $query = $pdo->query($sql);
-
-    if ($query->rowCount() > 0) {
-        $product_categories = $query->fetchAll(PDO::FETCH_ASSOC);
-    }
 }
 ?>
 
@@ -48,24 +41,38 @@ if (!isset($_SESSION['admin'])) {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($product_categories as $category): ?>
+                                        <?php
+
+                                        $product_categories = [];
+
+                                        $sql = "SELECT * FROM product_categories ORDER BY id DESC";
+                                        $query = $pdo->query($sql);
+
+                                        if ($query->rowCount() > 0) {
+                                            $product_categories = $query->fetchAll(PDO::FETCH_ASSOC);
+                                        }
+
+                                        for ($i = 0; $i < count($product_categories); $i++) {
+                                            $product_name = $product_categories[$i]['name'];
+                                            $product_img = get_thumb($product_categories[$i]['photo']);
+                                            ?>
                                             <tr>
                                                 <td>
-                                                    <?= $category['id'] ?>
+                                                    <?= $i + 1 ?>
                                                 </td>
                                                 <td>
-                                                    <?= $category['name'] ?>
+                                                    <?= $product_name ?>
                                                 </td>
-                                                <td><img src="<?= get_thumb($category['image']) ?>"
-                                                        alt="<?= $category['name'] ?>" width="50"></td>
-                                                <td class="pt_10 pb_10">
+                                                <td><img src="<?= $product_img ?>" alt="<?= $product_name ?>" width="100">
+                                                </td>
+                                                <td class="pt_9 pb_10">
                                                     <a href="" class="btn btn-primary"><i class="fas fa-edit"></i></a>
                                                     <a href="" class="btn btn-danger"
                                                         onClick="return confirm('Are you sure?');"><i
                                                             class="fas fa-trash"></i></a>
                                                 </td>
                                             </tr>
-                                        <?php endforeach; ?>
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>
