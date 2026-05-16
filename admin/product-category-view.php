@@ -70,8 +70,8 @@ if (!isset($_SESSION['admin'])) {
                                                     <a class="btn btn-primary"
                                                         href="<?= ADMIN_URL ?>product-category-edit.php?id=<?= $product_id ?>"><i
                                                             class="fas fa-edit"></i></a>
-                                                    <a href="" class="btn btn-danger"
-                                                        onClick="return confirm('Are you sure?');"><i
+                                                    <a href="<?= ADMIN_URL ?>product-category-delete.php?id=<?= $product_id ?>"
+                                                        class="btn btn-danger" onClick="return confirm('Are you sure?');"><i
                                                             class="fas fa-trash"></i></a>
                                                 </td>
                                             </tr>
