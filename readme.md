@@ -25,7 +25,7 @@ Yes. I intended to make it that way.
 
 Of course, yes. I have written the SQL as part of the code. Simply copy/paste
 
-#### Can I ask more questions from Kevin?
+#### Can I ask more questions from hitchcliff?
 
 Absolutely you can. I'm friendly to whether you're beginner or pro! 
 
