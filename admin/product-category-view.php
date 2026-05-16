@@ -53,6 +53,7 @@ if (!isset($_SESSION['admin'])) {
                                         }
 
                                         for ($i = 0; $i < count($product_categories); $i++) {
+                                            $product_id = $product_categories[$i]['id'];
                                             $product_name = $product_categories[$i]['name'];
                                             $product_img = get_thumb($product_categories[$i]['photo']);
                                             ?>
@@ -66,7 +67,9 @@ if (!isset($_SESSION['admin'])) {
                                                 <td><img src="<?= $product_img ?>" alt="<?= $product_name ?>" width="100">
                                                 </td>
                                                 <td class="pt_9 pb_10">
-                                                    <a href="" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                                    <a class="btn btn-primary"
+                                                        href="<?= ADMIN_URL ?>product-category-edit.php?id=<?= $product_id ?>"><i
+                                                            class="fas fa-edit"></i></a>
                                                     <a href="" class="btn btn-danger"
                                                         onClick="return confirm('Are you sure?');"><i
                                                             class="fas fa-trash"></i></a>
