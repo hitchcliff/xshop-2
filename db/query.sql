@@ -43,3 +43,29 @@ CREATE TABLE product_categories (
     name VARCHAR(255) NOT NULL,
     photo TEXT NULL
 )
+
+DROP TABLE IF EXISTS products;
+
+CREATE TABLE products(
+    id int AUTO_INCREMENT PRIMARY KEY,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    product_category_id int NOT NULL,
+    featured_photo VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    slug VARCHAR(255) NOT NULL,
+    quantity int DEFAULT 0,
+    regular_price FLOAT,
+    sale_price FLOAT,
+    short_description TEXT,
+    description LONGTEXT,
+    sku VARCHAR(100) NULL,
+    size VARCHAR(100) NULL,
+    color VARCHAR(100) NULL,
+    capacity VARCHAR(100) NULL,
+    weight VARCHAR(100) NULL,
+    pocket VARCHAR(100) NULL,
+    water_resistant VARCHAR(3) NULL,
+    warranty VARCHAR(100) NULL,
+    total_sale int DEFAULT 0
+)
