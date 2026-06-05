@@ -14,23 +14,30 @@ if (!isset($_SESSION['admin'])) {
 
 if (isset($_POST['form_create_product'])) {
     try {
-        $category_name = $_POST['name'];
+        $product_name = $_POST['name'];
+        $product_slug = $_POST['slug'];
 
         if ($_FILES['photo']['size'] <= 0) {
-            throw new Exception("Category image is required");
+            throw new Exception("Featured image is required");
         }
 
-        if (!$category_name) {
-            throw new Exception("Category name is required");
+        if (!$product_name) {
+            throw new Exception("Name is required");
+        }
+
+
+        if (!$product_slug) {
+            throw new Exception("Slug is required");
         }
 
         // if upload photo
         $imgs = upload_images($_FILES, ['width' => 350, 'height' => 400]);
 
+
         if (count($imgs) > 0) {
             $imgs = json_encode($imgs);
 
-            $sqlForUploadingPhoto = "INSERT INTO product_categories (name, photo) VALUES ('$category_name', '$imgs')";
+            $sqlForUploadingPhoto = "INSERT INTO products (name, featured_photo) VALUES ('$product_name', '$imgs')";
             $resultForUploadingPhoto = $pdo->query($sqlForUploadingPhoto);
 
             if ($resultForUploadingPhoto->rowCount() > 0) {
@@ -45,6 +52,8 @@ if (isset($_POST['form_create_product'])) {
     } catch (\Throwable $th) {
         $error_message = $th->getMessage();
         $_SESSION['error_message'] = $error_message;
+        var_dump($error_message);
+        die();
     }
 }
 
@@ -67,7 +76,7 @@ if (isset($_POST['form_create_product'])) {
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="photo" class="form-label">Featured Photo: *</label>
-                                        <input type="file" class="mt_10" name="photo" required id="photo">
+                                        <input type="file" class="mt_10" name="photo" id="photo">
                                     </div>
                                     <div class="form-group">
                                         <label for="name" class="form-label">Product Name *</label>
