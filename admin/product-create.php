@@ -63,7 +63,7 @@ if (isset($_POST['form_create_product'])) {
             $imgs = json_encode($imgs);
 
             $sqlForUploadingPhoto = "INSERT INTO products (name, featured_photo, product_category_id, slug, quantity, regular_price, sale_price, short_description, description, sku, size, color, capacity, weight, pocket, water_resistant, warranty) 
-            VALUES ('$product_name', '$imgs', '$product_category_id', '$product_slug', '$product_quantity', '$product_price', '$product_sale_price', '$product_short_description', '$product_description', '$product_sku', '$producdt_size', '$product_color', '$product_capacity', '$product_weight', '$product_pocket', '$product_water_resistant', '$product_warranty')";
+            VALUES ('$product_name', '$imgs', '$product_category_id', '$product_slug', '$product_quantity', '$product_price', '$product_sale_price', '$product_short_description', '$product_description', '$product_sku', '$product_size', '$product_color', '$product_capacity', '$product_weight', '$product_pocket', '$product_water_resistant', '$product_warranty')";
 
             $resultForUploadingPhoto = $pdo->query($sqlForUploadingPhoto);
 
@@ -134,12 +134,12 @@ if (isset($_POST['form_create_product'])) {
                                     <div class="form-group">
                                         <label for="short_description" class="form-label">Short Description*</label>
                                         <textarea name="short_description" class="form-control" cols="30" rows="5"
-                                            id="short_description"><?= $product_short_description ?></textarea>
+                                            id="short_description"><?= $product_short_description ?? "" ?></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="description" class="form-label">Description *</label>
                                         <textarea name="description" class="form-control h_100" cols="30" rows="10"
-                                            id="description"><?= $product_description ?></textarea>
+                                            id="description"><?= $product_description ?? "" ?></textarea>
                                     </div>
 
                                     <div class="d-flex flex-wrap row-2-form">

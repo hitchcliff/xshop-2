@@ -36,7 +36,7 @@ if (!isset($_SESSION['admin'])) {
                                         <tr>
                                             <th>ID</th>
                                             <th>Name</th>
-                                            <th>slug</th>
+                                            <th>Slug</th>
                                             <th>Quantity</th>
                                             <th>Price</th>
                                             <th>Sale Price</th>
@@ -72,7 +72,7 @@ if (!isset($_SESSION['admin'])) {
                                             $product_name = $products[$i]['name'];
                                             $product_slug = $products[$i]['slug'];
                                             $product_quantity = $products[$i]['quantity'];
-                                            $product_price = $products[$i]['price'];
+                                            $product_price = $products[$i]['regular_price'];
                                             $product_sale_price = $products[$i]['sale_price'];
                                             $product_short_description = $products[$i]['short_description'];
                                             $product_description = $products[$i]['description'];
@@ -84,8 +84,8 @@ if (!isset($_SESSION['admin'])) {
                                             $product_pocket = $products[$i]['pocket'];
                                             $product_water_resistant = $products[$i]['water_resistant'];
                                             $product_warranty = $products[$i]['warranty'];
-                                            $product_total_sales = $products[$i]['total_sales'];
-                                            $product_img = get_thumb($products[$i]['photo']);
+                                            $product_total_sales = $products[$i]['total_sale'];
+                                            $product_img = get_thumb($products[$i]['featured_photo']);
                                             ?>
                                             <tr>
                                                 <td>
@@ -94,6 +94,7 @@ if (!isset($_SESSION['admin'])) {
                                                 <td>
                                                     <?= $product_name ?>
                                                 </td>
+                                                <td><?= $product_slug ?></td>
                                                 <td>
                                                     <?= $product_quantity ?>
                                                 </td>
