@@ -67,26 +67,34 @@ if (isset($_POST['form_create_product'])) {
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="photo" class="form-label">Featured Photo: *</label>
-                                        <input type="file" class="mt_10" name="photo" required>
+                                        <input type="file" class="mt_10" name="photo" required id="photo">
                                     </div>
                                     <div class="form-group">
                                         <label for="name" class="form-label">Product Name *</label>
-                                        <input type="text" class="form-control" name="name">
+                                        <input type="text" class="form-control" name="name" id="name">
                                     </div>
+
                                     <div class="form-group">
-                                        <label for="slug" class="form-label">Slug *</label>
-                                        <input type="text" class="form-control" name="slug">
+                                        <label for="short_description" class="form-label">Short Description*</label>
+                                        <textarea name="short_description" class="form-control" cols="30" rows="5"
+                                            id="short_description"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="description" class="form-label">Description *</label>
-                                        <textarea name="description" class="form-control h_100" cols="30"
-                                            rows="10"></textarea>
+                                        <textarea name="description" class="form-control h_100" cols="30" rows="10"
+                                            id="description"></textarea>
                                     </div>
 
                                     <div class="d-flex flex-wrap row-2-form">
                                         <div class="col-md-6 col-12">
                                             <div class="">
-                                                <label for="price" class="form-label">Price</label>
+                                                <label for="slug" class="form-label">Slug *</label>
+                                                <input type="text" class="form-control" name="slug" id="slug">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="">
+                                                <label for="price" class="form-label">Price *</label>
                                                 <input type="text" class="form-control" name="price" id="price">
                                             </div>
                                         </div>
@@ -105,8 +113,54 @@ if (isset($_POST['form_create_product'])) {
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="">
-                                                <label for="quantity" class="form-label">Quantity</label>
-                                                <input type="text" class="form-control" name="quantity">
+                                                <label for="sku" class="form-label">SKU</label>
+                                                <input type="text" class="form-control" name="sku" id="sku">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="">
+                                                <label for="size" class="form-label">Size</label>
+                                                <input type="text" class="form-control" name="size" id="size">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="">
+                                                <label for="color" class="form-label">Color</label>
+                                                <input type="text" class="form-control" name="color" id="color">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="">
+                                                <label for="capacity" class="form-label">Capacity</label>
+                                                <input type="text" class="form-control" name="capacity" id="capacity">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="">
+                                                <label for="weight" class="form-label">Weight</label>
+                                                <input type="text" class="form-control" name="weight" id="weight">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="">
+                                                <label for="pocket" class="form-label">Pocket</label>
+                                                <input type="text" class="form-control" name="pocket" id="pocket">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="">
+                                                <label for="water_resistant" class="form-label">Water Resistant</label>
+                                                <select class="form-control" name="water_resistant"
+                                                    id="water_resistant">
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="">
+                                                <label for="warranty" class="form-label">Warranty in Years</label>
+                                                <input type="text" class="form-control" name="warranty" id="warranty">
                                             </div>
                                         </div>
                                     </div>

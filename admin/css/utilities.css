@@ -20,3 +20,9 @@
   padding-right: 10px;
   margin-bottom: 10px;
 }
+
+@media (max-width: 992px) {
+.row-2-form div:nth-child(odd){
+  padding-right: 0px;
+}
+}
