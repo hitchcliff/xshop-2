@@ -27,6 +27,15 @@
                 </a>
             </li>
 
+            <li class="<?php if ($cur_page == "product-view.php")
+                echo "active" ?>">
+                    <a class="nav-link" href="<?= ADMIN_URL ?>product-view.php">
+
+                    <span class="material-symbols-outlined me-2">inventory</span>
+                    <span>Products</span>
+                </a>
+            </li>
+
 
 
             <!-- <li class="nav-item dropdown active">
