@@ -15,3 +15,8 @@
   width: 350px;
   height: 400px;
 }
+
+.row-2-form div:nth-child(odd){
+  padding-right: 10px;
+  margin-bottom: 10px;
+}

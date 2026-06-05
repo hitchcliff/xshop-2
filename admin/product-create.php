@@ -65,18 +65,55 @@ if (isset($_POST['form_create_product'])) {
                         <div class="card-body">
                             <form method="post" enctype="multipart/form-data">
                                 <div class="col">
-                                    <div class="mb-4">
-                                        <input type="file" class="mt_10" name="photo">
+                                    <div class="form-group">
+                                        <label for="photo" class="form-label">Featured Photo: *</label>
+                                        <input type="file" class="mt_10" name="photo" required>
                                     </div>
-                                    <div class="">
-                                        <div class="mb-4">
-                                            <label class="form-label">Product Name *</label>
-                                            <input type="text" class="form-control" name="name">
+                                    <div class="form-group">
+                                        <label for="name" class="form-label">Product Name *</label>
+                                        <input type="text" class="form-control" name="name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="slug" class="form-label">Slug *</label>
+                                        <input type="text" class="form-control" name="slug">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="description" class="form-label">Description *</label>
+                                        <textarea name="description" class="form-control h_100" cols="30"
+                                            rows="10"></textarea>
+                                    </div>
+
+                                    <div class="d-flex flex-wrap row-2-form">
+                                        <div class="col-md-6 col-12">
+                                            <div class="">
+                                                <label for="price" class="form-label">Price</label>
+                                                <input type="text" class="form-control" name="price" id="price">
+                                            </div>
                                         </div>
-                                        <div class="mb-4">
-                                            <button type="submit" class="btn btn-primary"
-                                                name="form_create_product">Create Product</button>
+                                        <div class="col-md-6 col-12">
+                                            <div class="">
+                                                <label for="sale_price" class="form-label">Sale Price</label>
+                                                <input type="text" class="form-control" name="sale_price"
+                                                    id="sale_price">
+                                            </div>
                                         </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="">
+                                                <label for="quantity" class="form-label">Quantity</label>
+                                                <input type="text" class="form-control" name="quantity" id="quantity">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="">
+                                                <label for="quantity" class="form-label">Quantity</label>
+                                                <input type="text" class="form-control" name="quantity">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-4">
+                                        <button type="submit" class="btn btn-primary" name="form_create_product">Create
+                                            Product</button>
                                     </div>
                                 </div>
                             </form>
