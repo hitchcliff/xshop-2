@@ -20,7 +20,7 @@ if (!isset($_SESSION['admin'])) {
         <div class="section-header d-flex justify-content-between align-items-center">
             <h1>Products</h1>
             <div>
-                <a href="<?= ADMIN_URL ?>product-category-create.php" class="btn btn-primary">
+                <a href="<?= ADMIN_URL ?>product-create.php" class="btn btn-primary">
                     <i class="fas fa-plus"></i> Add Product
                 </a>
             </div>

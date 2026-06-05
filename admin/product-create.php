@@ -12,7 +12,7 @@ if (!isset($_SESSION['admin'])) {
 }
 
 
-if (isset($_POST['form_create_category'])) {
+if (isset($_POST['form_create_product'])) {
     try {
         $category_name = $_POST['name'];
 
@@ -54,7 +54,7 @@ if (isset($_POST['form_create_category'])) {
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Create Category</h1>
+            <h1>Create Product</h1>
 
             <span class="material-symbols-outlined">settings</span>
         </div>
@@ -70,12 +70,12 @@ if (isset($_POST['form_create_category'])) {
                                     </div>
                                     <div class="">
                                         <div class="mb-4">
-                                            <label class="form-label">Category Name *</label>
+                                            <label class="form-label">Product Name *</label>
                                             <input type="text" class="form-control" name="name">
                                         </div>
                                         <div class="mb-4">
                                             <button type="submit" class="btn btn-primary"
-                                                name="form_create_category">Create Category</button>
+                                                name="form_create_product">Create Product</button>
                                         </div>
                                     </div>
                                 </div>
