@@ -56,6 +56,10 @@ if (isset($_POST['form_create_product'])) {
             throw new Exception("Slug is required");
         }
 
+        if (!$product_price) {
+            throw new Exception("Price is required");
+        }
+
         // if upload photo
         $imgs = upload_images($_FILES, ['width' => 350, 'height' => 400]);
 
