@@ -79,7 +79,7 @@ if (isset($_POST['form_edit_category'])) {
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Edit Profile</h1>
+            <h1>Edit Category</h1>
 
             <span class="material-symbols-outlined">settings</span>
         </div>
