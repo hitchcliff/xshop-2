@@ -5,6 +5,9 @@ include('./components/nav.php');
 include('./components/sidebar.php');
 include('./components/is_admin.php');
 
+// NOTE
+// ONLY THE SLUG AND NAME CAN BE EDITED FOR NOW
+
 // product
 $id = $_REQUEST['id'];
 
