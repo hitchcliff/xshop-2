@@ -16,15 +16,16 @@ if ($query->rowCount() <= 0) {
     header("Location: $url");
 }
 
+
 $product = $query->fetch(PDO::FETCH_ASSOC);
 
 $product_img = get_thumb($product['featured_photo']);
 $product_name = $_POST['name'] ?? $product['name'];
 $product_slug = $_POST['slug'] ?? $product['slug'];
-$product_category_id = $_POST['category_id'] ?? $product['category_id'];
+$product_category_id = $_POST['category_id'] ?? $product['product_category_id'];
 $product_short_description = $_POST['short_description'] ?? $product['short_description'];
 $product_description = $_POST['description'] ?? $product['description'];
-$product_price = $_POST['price'] ?? $product['price'];
+$product_price = $_POST['price'] ?? $product['regular_price'];
 $product_sale_price = $_POST['sale_price'] ?? $product['sale_price'];
 $product_quantity = $_POST['quantity'] ?? $product['quantity'];
 $product_sku = $_POST['sku'] ?? $product['sku'];
