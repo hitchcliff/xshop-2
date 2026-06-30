@@ -31,25 +31,15 @@ if (!isset($_SESSION['admin'])) {
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="example1">
+                                <table class="table table-bordered text-center" id="example1">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
                                             <th>Name</th>
-                                            <th>Slug</th>
                                             <th>Quantity</th>
                                             <th>Price</th>
                                             <th>Sale Price</th>
                                             <th>Short Description</th>
-                                            <th>Description</th>
-                                            <th>SKU</th>
-                                            <th>Size</th>
-                                            <th>Color</th>
-                                            <th>Capacity</th>
-                                            <th>Weight</th>
-                                            <th>Pocket</th>
-                                            <th>Water Resistant</th>
-                                            <th>Warranty</th>
                                             <th>Total Sales</th>
                                             <th>Image</th>
                                             <th>Action</th>
@@ -94,7 +84,6 @@ if (!isset($_SESSION['admin'])) {
                                                 <td>
                                                     <?= $product_name ?>
                                                 </td>
-                                                <td><?= $product_slug ?></td>
                                                 <td>
                                                     <?= $product_quantity ?>
                                                 </td>
@@ -108,38 +97,11 @@ if (!isset($_SESSION['admin'])) {
                                                     <?= $product_short_description ?>
                                                 </td>
                                                 <td>
-                                                    <?= $product_description ?>
-                                                </td>
-                                                <td>
-                                                    <?= $product_sku ?>
-                                                </td>
-                                                <td>
-                                                    <?= $product_size ?>
-                                                </td>
-                                                <td>
-                                                    <?= $product_color ?>
-                                                </td>
-                                                <td>
-                                                    <?= $product_capacity ?>
-                                                </td>
-                                                <td>
-                                                    <?= $product_weight ?>
-                                                </td>
-                                                <td>
-                                                    <?= $product_pocket ?>
-                                                </td>
-                                                <td>
-                                                    <?= $product_water_resistant ?>
-                                                </td>
-                                                <td>
-                                                    <?= $product_warranty ?>
-                                                </td>
-                                                <td>
                                                     <?= $product_total_sales ?>
                                                 </td>
                                                 <td><img src="<?= $product_img ?>" alt="<?= $product_name ?>" width="100">
                                                 </td>
-                                                <td class="pt_9 pb_10">
+                                                <td class="pt_9 pb_10 ">
                                                     <a class="btn btn-primary"
                                                         href="<?= ADMIN_URL ?>product-edit.php?id=<?= $product_id ?>"><i
                                                             class="fas fa-edit"></i></a>
