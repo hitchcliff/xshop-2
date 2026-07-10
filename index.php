@@ -75,20 +75,25 @@
 
             if ($query->rowCount() > 0) {
               $product_categories = $query->fetchAll(PDO::FETCH_ASSOC);
-            }
 
-            for ($i = 0; $i < count($product_categories); $i++) {
-              if ($i <= 2) {
-                $product_name = $product_categories[$i]['name'];
-                $product_img = get_thumb($product_categories[$i]['photo']);
-              }
-              ?>
-              <div class="col-sm-4 px-2 mb-grid-gutter"><a class="d-block text-center text-decoration-none me-1"
-                  href="shop-grid-ls.html"><img class="d-block rounded mb-3" src="<?= ADMIN_URL . $product_img ?>"
-                    alt="<?= $product_name ?>">
-                  <h3 class="fs-base pt-1 mb-0"><?= $product_name ?></h3>
-                </a></div>
-            <?php } ?>
+              for ($i = 0; $i < count($product_categories); $i++) {
+                if ($i <= 2) {
+                  $product_name = $product_categories[$i]['name'];
+                  $product_img = get_thumb($product_categories[$i]['photo']);
+                }
+                ?>
+                <div class="col-sm-4 px-2 mb-grid-gutter"><a class="d-block text-center text-decoration-none me-1"
+                    href="shop-grid-ls.html"><img class="d-block rounded mb-3" src="<?= ADMIN_URL . $product_img ?>"
+                      alt="<?= $product_name ?>">
+                    <h3 class="fs-base pt-1 mb-0"><?= $product_name ?></h3>
+                  </a></div>
+              <?php }
+
+            } else {
+              echo "<p class='text-center'>No categories found.</p>";
+            }
+            ?>
+
           </div>
         </div>
       </div>

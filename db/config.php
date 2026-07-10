@@ -1,7 +1,7 @@
 <?php
 
 $dbhost = 'localhost';
-$dbname = "xshop-2-admin";
+$dbname = "xshop";
 $dbuser = "root";
 $dbpass = "";
 
@@ -12,7 +12,7 @@ try {
     echo "Connection error: " . $e->getMessage();
 }
 
-define("BASE_URL", "http://localhost/xshop-2/");
+define("BASE_URL", "http://localhost/xshop/");
 define("ADMIN_URL", BASE_URL . "admin/");
 
 define("SMTP_HOST", "sandbox.smtp.mailtrap.io");
