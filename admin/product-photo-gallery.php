@@ -11,12 +11,14 @@ $id = $_REQUEST['id'];
 $sql = "SELECT * FROM products WHERE id='{$id}'";
 $query = $pdo->query($sql);
 
-$url = ADMIN_URL . "product-view.php";
+$url = ADMIN_URL . "product-photo-gallery.php";
 
 if ($query->rowCount() <= 0) {
     header("Location: $url");
 }
 
+
+// submit form for uploading a photo
 if (isset($_POST['form_upload_product_gallery'])) {
     try {
         // Handle photo upload logic here
@@ -26,11 +28,26 @@ if (isset($_POST['form_upload_product_gallery'])) {
             throw new Exception("Upload atleast 1 image");
         }
 
+        // if upload photo
+        $imgs = upload_images($_FILES, ['width' => 350, 'height' => 400]);
+
+        if (count($imgs) > 0) {
+
+            $imgs = json_encode($imgs);
+
+            $sqlForUploadingPhoto = "INSERT INTO product_gallery (product_id, photo) VALUES ('$id','$imgs')";
+            $query = $pdo->query($sqlForUploadingPhoto);
+
+            if ($query->rowCount() > 0) {
+                $_SESSION['success_message'] = "Photo uploaded successfully";
+            } else {
+                throw new Exception("Failed to upload photo. Please try again.");
+            }
+
+        }
     } catch (\Throwable $th) {
         $error_message = $th->getMessage();
         $_SESSION['error_message'] = $error_message;
-        header("Location: $url");
-        exit;
     }
 
 }
@@ -51,6 +68,7 @@ if (isset($_POST['form_upload_product_gallery'])) {
             </a>
         </div>
         <div class="section-body">
+            <!-- add photo -->
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -78,6 +96,70 @@ if (isset($_POST['form_upload_product_gallery'])) {
                     </div>
                 </div>
             </div>
+
+            <!-- table -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered text-center" id="example1">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Photo</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $photos = []; // photos
+                                        
+                                        $sqlForPhotos = "SELECT * FROM product_gallery WHERE product_id='$id'";
+                                        $photoQuery = $pdo->query($sqlForPhotos);
+
+                                        if ($photoQuery->rowCount() > 0) {
+                                            $photos = $photoQuery->fetchAll(PDO::FETCH_ASSOC);
+                                            for ($i = 0; $i < count($photos); $i++) {
+
+                                                $photo_id = $photos[$i]['id'];
+                                                $photo = get_thumb($photos[$i]['photo']);
+
+                                                ?>
+                                                <tr>
+                                                    <td>
+                                                        <?= $i + 1 ?>
+                                                    </td>
+                                                    <td><img src="<?= $photo ?>" alt="photo-<?= $photo_id ?>" width="100">
+                                                    </td>
+                                                    <td class="pt_9 pb_10 ">
+                                                        <a class="btn btn-primary"
+                                                            href="<?= ADMIN_URL ?>product-photo-gallery-edit.php?id=<?= $photo_id ?>"><i
+                                                                class="fas fa-edit"></i></a>
+                                                        <a href="<?= ADMIN_URL ?>product-photo-gallery-delete.php?id=<?= $photo_id ?>"
+                                                            class="btn btn-danger" onClick="return confirm('Are you sure?');"><i
+                                                                class="fas fa-trash"></i></a>
+                                                    </td>
+                                                </tr>
+                                            <?php }
+                                            ?>
+
+
+
+                                        <?php }
+                                        ?>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </section>
 </div>
+
+<?php include("./components/footer.php"); ?>
