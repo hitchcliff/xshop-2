@@ -101,6 +101,8 @@ if (isset($_POST['form_create_product'])) {
     } catch (\Throwable $th) {
         $error_message = $th->getMessage();
         $_SESSION['error_message'] = $error_message;
+        var_dump($error_message);
+
     }
 }
 
