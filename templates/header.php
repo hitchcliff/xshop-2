@@ -6,6 +6,9 @@ session_start();
 include('./db/config.php');
 include('./components/uploads.php');
 include("./vendor/autoload.php");
+
+// helpers
+include('./components/helpers.php');
 ?>
 
 <!DOCTYPE html>
