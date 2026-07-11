@@ -121,10 +121,8 @@ if (isset($_POST['form_upload_product_gallery'])) {
                                         if ($photoQuery->rowCount() > 0) {
                                             $photos = $photoQuery->fetchAll(PDO::FETCH_ASSOC);
                                             for ($i = 0; $i < count($photos); $i++) {
-
                                                 $photo_id = $photos[$i]['id'];
                                                 $photo = get_thumb($photos[$i]['photo']);
-
                                                 ?>
                                                 <tr>
                                                     <td>
