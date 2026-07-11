@@ -72,25 +72,19 @@ if (isset($_POST['form_upload_product_gallery'])) {
                 <?= $_REQUEST['id'] ?? '' ?>
             </span>
 
-            <a href="<?= ADMIN_URL ?>product-view.php" class="ml-auto btn btn-primary">
-                Show all Products
-            </a>
+
         </div>
         <div class="section-body">
-            <!-- add photo -->
             <div class="row">
-                <div class="col-12">
+                <!-- add photo -->
+                <div class="col-md-3 col-12">
                     <div class="card">
                         <div class="card-body">
-                            <div class="col">
 
-                                <span class="font-italic text-warning">Note: Old images uploaded will be
-                                    <b>replaced</b></span>
-                            </div>
                             <form method="post" enctype="multipart/form-data">
                                 <div class="col">
                                     <div class="form-group">
-                                        <label for="photo" class="form-label">Photos: *</label>
+                                        <label for="photo" class="form-label">Upload a photo: *</label>
                                         <input type="file" class="mt_10" name="photo" id="photo">
                                     </div>
                                     <div class="mt-4">
@@ -104,11 +98,9 @@ if (isset($_POST['form_upload_product_gallery'])) {
                         </div>
                     </div>
                 </div>
-            </div>
+                <!-- table -->
+                <div class="col-md-9 col-12">
 
-            <!-- table -->
-            <div class="row">
-                <div class="col-12">
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">
@@ -160,6 +152,8 @@ if (isset($_POST['form_upload_product_gallery'])) {
                     </div>
                 </div>
             </div>
+
+
 
 
         </div>
