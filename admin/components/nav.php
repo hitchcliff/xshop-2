@@ -13,17 +13,11 @@ $admin_photo = get_thumb($_SESSION['admin']['photo']);
     </form>
     <ul class="navbar-nav navbar-right justify-content-end rightsidetop align-items-center">
         <li class="nav-link">
-            <a href="" target="_blank" class="btn btn-warning">Front End</a>
-        </li>
-        <li class="nav-link">
-            <span>Logged in as:
-                <span class="text-capitalize fw-bold">
-                    <?= $_SESSION['admin']['first_name'] ?>
+            <a href="<?= BASE_URL ?>" target="_blank" class="btn btn-success d-flex">
+                <span class="material-symbols-outlined">
+                    home
                 </span>
-                <span class="text-capitalize ml-2 fw-bold">
-                    <?= $_SESSION['admin']['last_name'] ?>
-                </span>
-            </span>
+            </a>
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -36,6 +30,14 @@ $admin_photo = get_thumb($_SESSION['admin']['photo']);
 
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
+                <li class="dropdown-item">
+                    <span class="text-capitalize fw-bold">
+                        <?= $_SESSION['admin']['first_name'] ?>
+                    </span>
+                    <span class="text-capitalize fw-bold">
+                        <?= $_SESSION['admin']['last_name'] ?>
+                    </span>
+                </li>
                 <li><a class="dropdown-item" href="profile.php"><i class="far fa-user"></i> Edit Profile</a></li>
                 <li><a class="dropdown-item" href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
             </ul>
