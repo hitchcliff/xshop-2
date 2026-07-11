@@ -8,10 +8,19 @@ include('./components/is_admin.php');
 // product
 $id = $_REQUEST['id'];
 
+if ($id == "") {
+    $error_message = "Product ID is required";
+    $_SESSION['error_message'] = $error_message;
+
+    $url = ADMIN_URL . "product-view.php";
+    header("Location: $url");
+    exit;
+}
+
 $sql = "SELECT * FROM products WHERE id='{$id}'";
 $query = $pdo->query($sql);
 
-$url = ADMIN_URL . "product-photo-gallery.php";
+$url = ADMIN_URL . "product-photo-gallery.php?id={$id}";
 
 if ($query->rowCount() <= 0) {
     header("Location: $url");
@@ -131,10 +140,7 @@ if (isset($_POST['form_upload_product_gallery'])) {
                                                     <td><img src="<?= $photo ?>" alt="photo-<?= $photo_id ?>" width="100">
                                                     </td>
                                                     <td class="pt_9 pb_10 ">
-                                                        <a class="btn btn-primary"
-                                                            href="<?= ADMIN_URL ?>product-photo-gallery-edit.php?id=<?= $photo_id ?>"><i
-                                                                class="fas fa-edit"></i></a>
-                                                        <a href="<?= ADMIN_URL ?>product-photo-gallery-delete.php?id=<?= $photo_id ?>"
+                                                        <a href="<?= ADMIN_URL ?>product-photo-gallery-delete.php?photo_id=<?= $photo_id ?>&product_id=<?= $id ?>"
                                                             class="btn btn-danger" onClick="return confirm('Are you sure?');"><i
                                                                 class="fas fa-trash"></i></a>
                                                     </td>
