@@ -142,7 +142,7 @@ if (isset($_POST['form_create_product'])) {
                                     </div>
                                     <div class="form-group">
                                         <label for="description" class="form-label">Description *</label>
-                                        <textarea name="description" class="form-control h_100" cols="30" rows="10"
+                                        <textarea name="description" class="form-control editor" cols="30" rows="10"
                                             id="description"><?= $product_description ?? "" ?></textarea>
                                     </div>
 

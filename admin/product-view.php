@@ -39,7 +39,6 @@ if (!isset($_SESSION['admin'])) {
                                             <th>Quantity</th>
                                             <th>Price</th>
                                             <th>Sale Price</th>
-                                            <th>Short Description</th>
                                             <th>Total Sales</th>
                                             <th>Image</th>
                                             <th>Action</th>
@@ -92,9 +91,6 @@ if (!isset($_SESSION['admin'])) {
                                                 </td>
                                                 <td>
                                                     <?= $product_sale_price ?>
-                                                </td>
-                                                <td>
-                                                    <?= $product_short_description ?>
                                                 </td>
                                                 <td>
                                                     <?= $product_total_sales ?>
