@@ -15,7 +15,7 @@ CREATE TABLE users (
 );
 
 INSERT INTO users (first_name, last_name, password, email, token, role, status) 
-VALUES ("john", "doe", "$2y$10$BvQ1nd/URcwoViDFQ1qKVecZKAlpamFhoOnoVXf2uXmmZgdx4W1JW", "admin@email.com", "176955093", "admin", 1)
+VALUES ("john", "doe", "$2y$10$BvQ1nd/URcwoViDFQ1qKVecZKAlpamFhoOnoVXf2uXmmZgdx4W1JW", "admin@email.com", "176955093", "admin", 1);
 
 DROP TABLE IF EXISTS customers;
 
@@ -32,7 +32,7 @@ CREATE TABLE customers (
     token VARCHAR(80) NULL,
     role VARCHAR(255) NOT NULL,
     status VARCHAR(8)
-)
+);
 
 DROP TABLE IF EXISTS product_categories;
 
@@ -42,7 +42,7 @@ CREATE TABLE product_categories (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     name VARCHAR(255) NOT NULL,
     photo TEXT NULL
-)
+);
 
 DROP TABLE IF EXISTS products;
 
@@ -68,4 +68,14 @@ CREATE TABLE products(
     water_resistant VARCHAR(3) NULL,
     warranty VARCHAR(100) NULL,
     total_sale int DEFAULT 0
-)
+);
+
+DROP TABLE IF EXISTS product_gallery;
+
+CREATE TABLE product_gallery(
+    id int AUTO_INCREMENT PRIMARY KEY,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    product_id int NOT NULL,
+    photo VARCHAR(255) NOT NULL
+);
