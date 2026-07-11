@@ -16,13 +16,15 @@
   height: 400px;
 }
 
-.row-2-form div:nth-child(odd){
-  padding-right: 10px;
+.row-2-form div{
+  padding-left: 0px;
   margin-bottom: 10px;
 }
 
+
 @media (max-width: 992px) {
-.row-2-form div:nth-child(odd){
+.row-2-form div{
+  width: 100%;
   padding-right: 0px;
 }
 }

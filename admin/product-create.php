@@ -236,7 +236,7 @@ if (isset($_POST['form_create_product'])) {
                                         </div>
                                     </div>
 
-                                    <div class="mt-4">
+                                    <div class="mb-4 d-inline-block">
                                         <button type="submit" class="btn btn-primary" name="form_create_product">Create
                                             Product</button>
                                     </div>

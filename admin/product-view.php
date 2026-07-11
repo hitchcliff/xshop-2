@@ -98,6 +98,9 @@ if (!isset($_SESSION['admin'])) {
                                                 <td><img src="<?= $product_img ?>" alt="<?= $product_name ?>" width="100">
                                                 </td>
                                                 <td class="pt_9 pb_10 ">
+                                                    <a class="btn btn-info"
+                                                        href="<?= ADMIN_URL ?>product-photo-gallery.php?id=<?= $product_id ?>"><i
+                                                            class="fas fa-images"></i></a>
                                                     <a class="btn btn-primary"
                                                         href="<?= ADMIN_URL ?>product-edit.php?id=<?= $product_id ?>"><i
                                                             class="fas fa-edit"></i></a>
