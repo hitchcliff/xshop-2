@@ -6,7 +6,7 @@
 
         $products = [];
 
-        $sql = "SELECT * FROM products ORDER BY id DESC";
+        $sql = "SELECT * FROM products ORDER BY total_sale DESC LIMIT 8";
         $query = $pdo->query($sql);
 
         if ($query->rowCount() > 0) {
@@ -56,7 +56,7 @@
                             </div>
                         </div>
                         <div class="card-body card-body-hidden">
-                            <div class="text-center pb-2">
+                            <!-- <div class="text-center pb-2">
                                 <div class="form-check form-option form-check-inline mb-2">
                                     <input class="form-check-input" type="radio" name="size1" id="s-75">
                                     <label class="form-option-label" for="s-75">7.5</label>
@@ -73,12 +73,14 @@
                                     <input class="form-check-input" type="radio" name="size1" id="s-90">
                                     <label class="form-option-label" for="s-90">9</label>
                                 </div>
-                            </div>
-                            <button class="btn btn-primary btn-sm d-block w-100 mb-2" type="button"><i
-                                    class="ci-cart fs-sm me-1"></i>Add
-                                to Cart</button>
-                            <div class="text-center"><a class="nav-link-style fs-ms" href="#quick-view"
-                                    data-bs-toggle="modal"><i class="ci-eye align-middle me-1"></i>Quick view</a></div>
+                            </div> -->
+                            <form action="" method="post">
+                                <button type="submit" name="form_add_to_cart" class="btn btn-primary btn-sm d-block w-100 mb-2"
+                                    type="button"><i class="ci-cart fs-sm me-1"></i>Add
+                                    to Cart</button>
+                            </form>
+                            <!-- <div class="text-center"><a class="nav-link-style fs-ms" href="#quick-view"
+                                    data-bs-toggle="modal"><i class="ci-eye align-middle me-1"></i>Quick view</a></div> -->
                         </div>
                     </div>
                     <hr class="d-sm-none">
