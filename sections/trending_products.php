@@ -39,7 +39,8 @@
                     <div class="card product-card">
                         <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left"
                             title="Add to wishlist"><i class="ci-heart"></i></button><a
-                            class="card-img-top d-block overflow-hidden" href="shop-single-v1.html"><img
+                            class="card-img-top d-block overflow-hidden"
+                            href="product.php?id=<?= $product_id ?>&slug=<?= $product_slug ?>"><img
                                 src="<?= ADMIN_URL . $product_img ?>" alt="<?= $product_name ?>"></a>
                         <div class="card-body py-2"><a class="product-meta d-block fs-xs pb-1"
                                 href="#"><?= $product_category ?></a>
