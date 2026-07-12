@@ -14,3 +14,8 @@ function get_product_category($pdo, $category_id)
     return "Unknown Category";
 
 }
+
+function redirect($url)
+{
+    header("Location: $url");
+}

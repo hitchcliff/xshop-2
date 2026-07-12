@@ -1,4 +1,16 @@
-<?php include 'templates/header.php'; ?>
+<?php include 'templates/header.php';
+
+$product_id = $_REQUEST['id'];
+$sql = "SELECT * FROM products WHERE id='$product_id'";
+$query = $pdo->query($sql);
+
+if ($query->rowCount() <= 0) {
+  redirect(BASE_URL . 'index.php');
+}
+
+
+?>
+
 
 
 <!-- Page Title-->
