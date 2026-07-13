@@ -8,6 +8,27 @@ if ($query->rowCount() <= 0) {
   redirect(BASE_URL . 'index.php');
 }
 
+$product = $query->fetch(PDO::FETCH_ASSOC);
+
+$product_name = $product['name'];
+$product_slug = $product['slug'];
+$product_quantity = $product['quantity'];
+$product_price = $product['regular_price'];
+$product_sale_price = $product['sale_price'];
+$product_short_description = $product['short_description'];
+$product_description = $product['description'];
+$product_sku = $product['sku'];
+$product_size = $product['size'];
+$product_color = $product['color'];
+$product_capacity = $product['capacity'];
+$product_weight = $product['weight'];
+$product_pocket = $product['pocket'];
+$product_water_resistant = $product['water_resistant'];
+$product_warranty = $product['warranty'];
+$product_total_sales = $product['total_sale'];
+$product_img = ADMIN_URL . get_photo($product['featured_photo']);
+$product_category = get_product_category($pdo, $product['product_category_id']);
+
 
 ?>
 
@@ -19,16 +40,16 @@ if ($query->rowCount() <= 0) {
     <div class="order-lg-2 mb-3 mb-lg-0 pt-lg-2">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb breadcrumb-light flex-lg-nowrap justify-content-center justify-content-lg-start">
-          <li class="breadcrumb-item"><a class="text-nowrap" href="index-2.html"><i class="ci-home"></i>Home</a>
+          <li class="breadcrumb-item"><a class="text-nowrap" href="<?= BASE_URL ?>"><i class="ci-home"></i>Home</a>
           </li>
-          <li class="breadcrumb-item text-nowrap"><a href="#">Shop</a>
+          <li class="breadcrumb-item text-nowrap"><a href="<?= BASE_URL . "shop.php" ?>">Shop</a>
           </li>
-          <li class="breadcrumb-item text-nowrap active" aria-current="page">Product Page v.1</li>
+          <li class="breadcrumb-item text-nowrap active" aria-current="page"><?= $product_name ?></li>
         </ol>
       </nav>
     </div>
     <div class="order-lg-1 pe-lg-4 text-center text-lg-start">
-      <h1 class="h3 text-light mb-0">Sports Hooded Sweatshirt</h1>
+      <h1 class="h3 text-light mb-0"><?= $product_name ?></h1>
     </div>
   </div>
 </div>
@@ -41,33 +62,68 @@ if ($query->rowCount() <= 0) {
         <div class="col-lg-7 pe-lg-0 pt-lg-4">
           <div class="product-gallery">
             <div class="product-gallery-preview order-sm-2">
+              <!-- featured img -->
               <div class="product-gallery-preview-item active" id="first"><img class="image-zoom"
-                  src="img/shop/single/gallery/01.jpg" data-zoom="img/shop/single/gallery/01.jpg" alt="Product image">
+                  src="<?= $product_img ?>" data-zoom="<?= $product_img ?>" alt="Product image">
                 <div class="image-zoom-pane"></div>
               </div>
-              <div class="product-gallery-preview-item" id="second"><img class="image-zoom"
-                  src="img/shop/single/gallery/02.jpg" data-zoom="img/shop/single/gallery/02.jpg" alt="Product image">
-                <div class="image-zoom-pane"></div>
-              </div>
-              <div class="product-gallery-preview-item" id="third"><img class="image-zoom"
-                  src="img/shop/single/gallery/03.jpg" data-zoom="img/shop/single/gallery/03.jpg" alt="Product image">
-                <div class="image-zoom-pane"></div>
-              </div>
-              <div class="product-gallery-preview-item" id="fourth"><img class="image-zoom"
-                  src="img/shop/single/gallery/04.jpg" data-zoom="img/shop/single/gallery/04.jpg" alt="Product image">
-                <div class="image-zoom-pane"></div>
-              </div>
+
+              <?php
+
+              $sqlForPhotos = "SELECT * FROM product_gallery WHERE product_id='$product_id'";
+              $queryForPhotos = $pdo->query($sqlForPhotos);
+
+              if ($queryForPhotos->rowCount() > 0) {
+                $photos = $queryForPhotos->fetchAll(PDO::FETCH_ASSOC);
+                foreach ($photos as $photo) {
+                  $photo_id = $photo['id'];
+                  $photo_path = ADMIN_URL . get_photo($photo['photo']);
+                  ?>
+                  <div class="product-gallery-preview-item" id="photo-<?= $photo_id ?>">
+                    <img class="image-zoom" src="<?= $photo_path ?>" data-zoom="<?= $photo_path ?>" alt="Product image">
+                    <div class="image-zoom-pane"></div>
+                  </div>
+                  <?php
+                }
+              }
+
+              ?>
+
             </div>
-            <div class="product-gallery-thumblist order-sm-1"><a class="product-gallery-thumblist-item active"
-                href="#first"><img src="img/shop/single/gallery/th01.jpg" alt="Product thumb"></a><a
-                class="product-gallery-thumblist-item" href="#second"><img src="img/shop/single/gallery/th02.jpg"
-                  alt="Product thumb"></a><a class="product-gallery-thumblist-item" href="#third"><img
-                  src="img/shop/single/gallery/th03.jpg" alt="Product thumb"></a><a
-                class="product-gallery-thumblist-item" href="#fourth"><img src="img/shop/single/gallery/th04.jpg"
-                  alt="Product thumb"></a><a class="product-gallery-thumblist-item video-item"
-                href="https://www.youtube.com/watch?v=1vrXpMLLK14">
-                <div class="product-gallery-thumblist-item-text"><i class="ci-video"></i>Video</div>
-              </a></div>
+            <div class="product-gallery-thumblist order-sm-1">
+
+              <!-- featured img -->
+              <a class="product-gallery-thumblist-item active" href="#first">
+                <img src="<?= $product_img ?>" alt="Product thumb">
+              </a>
+
+              <?php
+
+              $sqlForPhotos = "SELECT * FROM product_gallery WHERE product_id='$product_id'";
+              $queryForPhotos = $pdo->query($sqlForPhotos);
+
+              if ($queryForPhotos->rowCount() > 0) {
+                $photos = $queryForPhotos->fetchAll(PDO::FETCH_ASSOC);
+                foreach ($photos as $photo) {
+                  $photo_id = $photo['id'];
+                  $photo_path = ADMIN_URL . get_thumb($photo['photo']);
+                  ?>
+                  <a class="product-gallery-thumblist-item" href="#photo-<?= $photo_id ?>">
+                    <img src="<?= $photo_path ?>" alt="Product thumb">
+                  </a>
+                  <?php
+                }
+              }
+
+              ?>
+
+
+              <!-- <a class="product-gallery-thumblist-item video-item" href="https://www.youtube.com/watch?v=1vrXpMLLK14">
+                <div class="product-gallery-thumblist-item-text">
+                  <i class="ci-video"></i>Video
+                </div>
+              </a> -->
+            </div>
           </div>
         </div>
         <!-- Product details-->
