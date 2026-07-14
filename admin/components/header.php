@@ -10,6 +10,8 @@ require "../vendor/autoload.php";
 
 include('../components/uploads.php');
 
+include('./components/utils.php');
+
 
 // get current page e.g., profile.php
 $cur_page = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], "/") + 1);

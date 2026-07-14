@@ -15,7 +15,7 @@ if (!isset($_SESSION['admin'])) {
 if (isset($_POST['form_create_product'])) {
     try {
         $product_name = $_POST['name'];
-        $product_slug = $_POST['slug'];
+        $product_slug = generateSlug($product_name);
         $product_category_id = $_POST['category_id'];
         $product_photo = $_FILES['photo'];
         $product_short_description = $_POST['short_description'];
@@ -149,13 +149,13 @@ if (isset($_POST['form_create_product'])) {
                                     </div>
 
                                     <div class="d-flex flex-wrap row-2-form">
-                                        <div class="col-md-6 col-12">
+                                        <!-- <div class="col-md-6 col-12">
                                             <div class="">
                                                 <label for="slug" class="form-label">Slug *</label>
                                                 <input type="text" class="form-control" name="slug" id="slug"
                                                     value="<?= $product_slug ?? "" ?>">
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="col-md-6 col-12">
                                             <div class="">
                                                 <label for="price" class="form-label">Price *</label>

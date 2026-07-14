@@ -24,7 +24,6 @@ $product = $query->fetch(PDO::FETCH_ASSOC);
 
 $product_img = get_thumb($product['featured_photo']);
 $product_name = $_POST['name'] ?? $product['name'];
-$product_slug = $_POST['slug'] ?? $product['slug'];
 $product_category_id = $_POST['category_id'] ?? $product['product_category_id'];
 $product_short_description = $_POST['short_description'] ?? $product['short_description'];
 $product_description = $_POST['description'] ?? $product['description'];
@@ -66,6 +65,8 @@ if (isset($_POST['form_edit_product'])) {
 
             }
         }
+
+        $product_slug = generateSlug($product_name);
 
         // UPDATE Text Fields
         $sql = "UPDATE products SET name='$product_name', slug='$product_slug' WHERE id='$id'";
@@ -135,13 +136,13 @@ if (isset($_POST['form_edit_product'])) {
                                         </div>
 
                                         <div class="d-flex flex-wrap row-2-form">
-                                            <div class="col-md-6 col-12">
+                                            <!-- <div class="col-md-6 col-12">
                                                 <div class="">
                                                     <label for="slug" class="form-label">Slug *</label>
                                                     <input type="text" class="form-control" name="slug" id="slug"
                                                         value="<?= $product_slug ?? "" ?>">
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <div class="col-md-6 col-12">
                                                 <div class="">
                                                     <label for="price" class="form-label">Price *</label>
