@@ -129,7 +129,9 @@ $product_category = get_product_category($pdo, $product['product_category_id']);
         <!-- Product details-->
         <div class="col-lg-5 pt-4 pt-lg-0">
           <div class="product-details ms-auto pb-3">
-            <div class="d-flex justify-content-between align-items-center mb-2"><a href="#reviews" data-scroll>
+
+            <!-- reviews -->
+            <!-- <div class="d-flex justify-content-between align-items-center mb-2"><a href="#reviews" data-scroll>
                 <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i
                     class="star-rating-icon ci-star-filled active"></i><i
                     class="star-rating-icon ci-star-filled active"></i><i
@@ -138,13 +140,38 @@ $product_category = get_product_category($pdo, $product['product_category_id']);
               </a>
               <button class="btn-wishlist me-0 me-lg-n3" type="button" data-bs-toggle="tooltip"
                 title="Add to wishlist"><i class="ci-heart"></i></button>
+            </div> -->
+
+            <!-- price -->
+            <div class="position-relative me-n4">
+              <?php
+              if ($product_sale_price > 0) {
+                ?>
+                <div class="mb-3"><span class="h3 fw-normal text-accent me-1">₱<?= $product_sale_price ?></span>
+                  <del class="text-muted fs-lg me-3">₱<?= $product_price ?></del><span
+                    class="badge bg-danger badge-shadow align-middle mt-n2">Sale</span>
+                </div>
+              <?php } else { ?>
+                <div class="mb-3"><span class="h3 fw-normal text-accent me-1">₱<?= $product_price ?></span>
+                </div>
+              <?php } ?>
+
+              <?php
+              if ($product_quantity > 0) { ?>
+                <div class="product-badge product-available mt-n1"><i class="ci-security-check"></i>Product available
+                </div>
+              <?php } else { ?>
+                <div class="product-badge product-unavailable mt-n1"><i class="ci-security-check"></i>Product unavailable
+                </div>
+              <?php } ?>
             </div>
-            <div class="mb-3"><span class="h3 fw-normal text-accent me-1">$18.<small>99</small></span>
-              <del class="text-muted fs-lg me-3">$25.<small>00</small></del><span
-                class="badge bg-danger badge-shadow align-middle mt-n2">Sale</span>
+
+
+
+            <!-- variation -->
+            <!-- <div class="fs-sm mb-4"><span class="text-heading fw-medium me-1">Color:</span><span class="text-muted"
+                id="colorOption">Red/Dark blue/White</span>
             </div>
-            <div class="fs-sm mb-4"><span class="text-heading fw-medium me-1">Color:</span><span class="text-muted"
-                id="colorOption">Red/Dark blue/White</span></div>
             <div class="position-relative me-n4 mb-3">
               <div class="form-check form-option form-check-inline mb-2">
                 <input class="form-check-input" type="radio" name="color" id="color1" data-bs-label="colorOption"
@@ -167,9 +194,9 @@ $product_category = get_product_category($pdo, $product['product_category_id']);
                     class="form-option-color rounded-circle"
                     style="background-image: url(img/shop/single/color-opt-3.png)"></span></label>
               </div>
-              <div class="product-badge product-available mt-n1"><i class="ci-security-check"></i>Product available
-              </div>
+
             </div>
+
             <form class="mb-grid-gutter" method="post">
               <div class="mb-3">
                 <div class="d-flex justify-content-between align-items-center pb-1">
@@ -197,7 +224,8 @@ $product_category = get_product_category($pdo, $product['product_category_id']);
                 <button class="btn btn-primary btn-shadow d-block w-100" type="submit"><i
                     class="ci-cart fs-lg me-2"></i>Add to Cart</button>
               </div>
-            </form>
+            </form> -->
+
             <!-- Product panels-->
             <div class="accordion mb-4" id="productPanels">
               <div class="accordion-item">
@@ -230,35 +258,35 @@ $product_category = get_product_category($pdo, $product['product_category_id']);
                         <div class="fw-semibold text-dark">Courier</div>
                         <div class="fs-sm text-muted">2 - 4 days</div>
                       </div>
-                      <div>$26.50</div>
+                      <div>₱26.50</div>
                     </div>
                     <div class="d-flex justify-content-between border-bottom py-2">
                       <div>
                         <div class="fw-semibold text-dark">Local shipping</div>
                         <div class="fs-sm text-muted">up to one week</div>
                       </div>
-                      <div>$10.00</div>
+                      <div>₱10.00</div>
                     </div>
                     <div class="d-flex justify-content-between border-bottom py-2">
                       <div>
                         <div class="fw-semibold text-dark">Flat rate</div>
                         <div class="fs-sm text-muted">5 - 7 days</div>
                       </div>
-                      <div>$33.85</div>
+                      <div>₱33.85</div>
                     </div>
                     <div class="d-flex justify-content-between border-bottom py-2">
                       <div>
                         <div class="fw-semibold text-dark">UPS ground shipping</div>
                         <div class="fs-sm text-muted">4 - 6 days</div>
                       </div>
-                      <div>$18.00</div>
+                      <div>₱18.00</div>
                     </div>
                     <div class="d-flex justify-content-between pt-2">
                       <div>
                         <div class="fw-semibold text-dark">Local pickup from store</div>
                         <div class="fs-sm text-muted">&mdash;</div>
                       </div>
-                      <div>$0.00</div>
+                      <div>₱0.00</div>
                     </div>
                   </div>
                 </div>
@@ -283,11 +311,18 @@ $product_category = get_product_category($pdo, $product['product_category_id']);
                 </div>
               </div>
             </div>
+
+            <!-- Add to cart -->
+            <form method="POST" class="mb-4">
+              <button class="btn btn-primary btn-shadow d-block w-100" type="submit" name="add_to_cart"> <i
+                  class="ci-cart fs-lg me-2"></i>Add to Cart</button>
+            </form>
+
             <!-- Sharing-->
-            <label class="form-label d-inline-block align-middle my-2 me-3">Share:</label><a
+            <!-- <label class="form-label d-inline-block align-middle my-2 me-3">Share:</label><a
               class="btn-share btn-twitter me-2 my-2" href="#"><i class="ci-twitter"></i>Twitter</a><a
               class="btn-share btn-instagram me-2 my-2" href="#"><i class="ci-instagram"></i>Instagram</a><a
-              class="btn-share btn-facebook my-2" href="#"><i class="ci-facebook"></i>Facebook</a>
+              class="btn-share btn-facebook my-2" href="#"><i class="ci-facebook"></i>Facebook</a> -->
           </div>
         </div>
       </div>

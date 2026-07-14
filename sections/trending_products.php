@@ -47,7 +47,7 @@
                             <h3 class="product-title fs-sm"><a href="shop-single-v1.html"><?= $product_name ?></a></h3>
                             <div class="d-flex justify-content-between">
                                 <div class="product-price"><span
-                                        class="text-accent">$<?= number_format($product_price, 2) ?></span></div>
+                                        class="text-accent">₱<?= number_format($product_price, 2) ?></span></div>
                                 <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i
                                         class="star-rating-icon ci-star-filled active"></i><i
                                         class="star-rating-icon ci-star-filled active"></i><i

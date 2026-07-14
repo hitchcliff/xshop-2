@@ -47,6 +47,8 @@ include('./components/helpers.php');
     <link rel="stylesheet" href="<?php echo ADMIN_URL; ?>dist/css/iziToast.min.css">
     <!-- Main Theme Styles + Bootstrap-->
     <link rel="stylesheet" media="screen" href="<?php echo BASE_URL; ?>dist-front/css/theme.min.css">
+    <!-- Utilities -->
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>dist-front/css/utilities.css">
 
     <!-- Google Font icons -->
     <link rel="stylesheet"

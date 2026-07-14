@@ -1,0 +1,4 @@
+.product-badge.product-unavailable {
+    background-color: var(--cz-red);
+    color: #fff;
+}
