@@ -1,4 +1,28 @@
 .product-badge.product-unavailable {
-    background-color: var(--cz-red);
-    color: #fff;
+  background-color: var(--cz-red);
+  color: #fff;
+}
+
+.spec-table {
+  width: 100%;
+  max-width: 1000px;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+}
+
+.spec-table td {
+  border: 1px solid #ddd;
+  padding: 10px 14px;
+  font-size: 14px;
+}
+
+.spec-table td:first-child {
+  width: 180px;
+  font-weight: 600;
+  color: #555;
+  background: #fafafa;
+}
+
+.spec-table td:last-child {
+  color: #333;
 }

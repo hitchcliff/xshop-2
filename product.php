@@ -48,9 +48,7 @@ $product_category = get_product_category($pdo, $product['product_category_id']);
         </ol>
       </nav>
     </div>
-    <div class="order-lg-1 pe-lg-4 text-center text-lg-start">
-      <h1 class="h3 text-light mb-0"><?= $product_name ?></h1>
-    </div>
+
   </div>
 </div>
 <div class="container">
@@ -143,16 +141,22 @@ $product_category = get_product_category($pdo, $product['product_category_id']);
             </div> -->
 
             <!-- price -->
-            <div class="position-relative me-n4">
+            <div class="position-relative me-n4 mb-4">
+              <div class="order-lg-1 pe-lg-4 text-center text-lg-start">
+                <h1 class="h3 mb-4">
+                  <?= $product_name ?>
+                </h1>
+              </div>
+
               <?php
               if ($product_sale_price > 0) {
                 ?>
-                <div class="mb-3"><span class="h3 fw-normal text-accent me-1">₱<?= $product_sale_price ?></span>
+                <div class="mb-2"><span class="h3 fw-normal text-accent me-1">₱<?= $product_sale_price ?></span>
                   <del class="text-muted fs-lg me-3">₱<?= $product_price ?></del><span
                     class="badge bg-danger badge-shadow align-middle mt-n2">Sale</span>
                 </div>
               <?php } else { ?>
-                <div class="mb-3"><span class="h3 fw-normal text-accent me-1">₱<?= $product_price ?></span>
+                <div class="mb-2"><span class="h3 fw-normal text-accent me-1">₱<?= $product_price ?></span>
                 </div>
               <?php } ?>
 
@@ -164,6 +168,11 @@ $product_category = get_product_category($pdo, $product['product_category_id']);
                 <div class="product-badge product-unavailable mt-n1"><i class="ci-security-check"></i>Product unavailable
                 </div>
               <?php } ?>
+
+              <span>
+                <?= $product_short_description ?>
+              </span>
+
             </div>
 
 
@@ -226,15 +235,99 @@ $product_category = get_product_category($pdo, $product['product_category_id']);
               </div>
             </form> -->
 
+            <!-- Instructions -->
+            <div class="mb-4">
+              <h6 class="fs-base mb-3">Washing instructions</h6>
+              <ul class="nav nav-tabs mb-3" role="tablist">
+                <li class="nav-item"><a class="nav-link active" href="#wash" data-bs-toggle="tab" role="tab"><i
+                      class="ci-wash fs-xl"></i></a></li>
+                <li class="nav-item"><a class="nav-link" href="#bleach" data-bs-toggle="tab" role="tab"><i
+                      class="ci-bleach fs-xl"></i></a></li>
+                <li class="nav-item"><a class="nav-link" href="#hand-wash" data-bs-toggle="tab" role="tab"><i
+                      class="ci-hand-wash fs-xl"></i></a></li>
+                <li class="nav-item"><a class="nav-link" href="#ironing" data-bs-toggle="tab" role="tab"><i
+                      class="ci-ironing fs-xl"></i></a></li>
+                <li class="nav-item"><a class="nav-link" href="#dry-clean" data-bs-toggle="tab" role="tab"><i
+                      class="ci-dry-clean fs-xl"></i></a></li>
+              </ul>
+              <div class="tab-content text-muted fs-sm">
+                <div class="tab-pane fade show active" id="wash" role="tabpanel">30° mild machine washing</div>
+                <div class="tab-pane fade" id="bleach" role="tabpanel">Do not use any bleach</div>
+                <div class="tab-pane fade" id="hand-wash" role="tabpanel">Hand wash normal (30°)</div>
+                <div class="tab-pane fade" id="ironing" role="tabpanel">Low temperature ironing</div>
+                <div class="tab-pane fade" id="dry-clean" role="tabpanel">Do not dry clean</div>
+              </div>
+            </div>
+
             <!-- Product panels-->
             <div class="accordion mb-4" id="productPanels">
               <div class="accordion-item">
                 <h3 class="accordion-header"><a class="accordion-button" href="#productInfo" role="button"
                     data-bs-toggle="collapse" aria-expanded="true" aria-controls="productInfo"><i
-                      class="ci-announcement text-muted fs-lg align-middle mt-n1 me-2"></i>Product info</a></h3>
+                      class="ci-announcement text-muted fs-lg align-middle mt-n1 me-2"></i>Specifications</a>
+                </h3>
                 <div class="accordion-collapse collapse show" id="productInfo" data-bs-parent="#productPanels">
                   <div class="accordion-body">
-                    <h6 class="fs-sm mb-2">Composition</h6>
+                    <table class="spec-table">
+                      <?php if ($product['sku'] != null && $product['sku'] != ""): ?>
+                        <tr>
+                          <td>SKU</td>
+                          <td><?= $product['sku'] ?></td>
+                        </tr>
+                      <?php endif; ?>
+
+                      <?php if ($product['size'] != null && $product['size'] != ""): ?>
+                        <tr>
+                          <td>Size</td>
+                          <td><?= $product['size'] ?></td>
+                        </tr>
+                      <?php endif; ?>
+
+                      <?php if ($product['color'] != null && $product['color'] != ""): ?>
+                        <tr>
+                          <td>Color</td>
+                          <td><?= $product['color'] ?></td>
+                        </tr>
+                      <?php endif; ?>
+
+                      <?php if ($product['capacity'] != null && $product['capacity'] != ""): ?>
+                        <tr>
+                          <td>Capacity</td>
+                          <td><?= $product['capacity'] ?></td>
+                        </tr>
+                      <?php endif; ?>
+
+                      <?php if ($product['weight'] != null && $product['weight'] != ""): ?>
+                        <tr>
+                          <td>Weight</td>
+                          <td><?= $product['weight'] ?></td>
+                        </tr>
+                      <?php endif; ?>
+
+                      <?php if ($product['pocket'] != null && $product['pocket'] != ""): ?>
+                        <tr>
+                          <td>Pockets</td>
+                          <td><?= $product['pocket'] ?></td>
+                        </tr>
+                      <?php endif; ?>
+
+                      <?php if ($product['water_resistant'] != null && $product['water_resistant'] != ""): ?>
+                        <tr>
+                          <td>Water Resistance</td>
+                          <td><?= $product['water_resistant'] ?></td>
+                        </tr>
+                      <?php endif; ?>
+
+                      <?php if ($product['warranty'] != null && $product['warranty'] != ""): ?>
+                        <tr>
+                          <td>Warranty</td>
+                          <td>
+                            <?= $product['warranty'] ?>
+                          </td>
+                        </tr>
+                      <?php endif; ?>
+                    </table>
+                    <!-- <h6 class="fs-sm mb-2">Composition</h6>
                     <ul class="fs-sm ps-4">
                       <li>Elastic rib: Cotton 95%, Elastane 5%</li>
                       <li>Lining: Cotton 100%</li>
@@ -243,7 +336,7 @@ $product_category = get_product_category($pdo, $product['product_category_id']);
                     <h6 class="fs-sm mb-2">Art. No.</h6>
                     <ul class="fs-sm ps-4 mb-0">
                       <li>183260098</li>
-                    </ul>
+                    </ul> -->
                   </div>
                 </div>
               </div>
@@ -291,29 +384,15 @@ $product_category = get_product_category($pdo, $product['product_category_id']);
                   </div>
                 </div>
               </div>
-              <div class="accordion-item">
-                <h3 class="accordion-header"><a class="accordion-button collapsed" href="#localStore" role="button"
-                    data-bs-toggle="collapse" aria-expanded="true" aria-controls="localStore"><i
-                      class="ci-location text-muted fs-lg align-middle mt-n1 me-2"></i>Find in local store</a></h3>
-                <div class="accordion-collapse collapse" id="localStore" data-bs-parent="#productPanels">
-                  <div class="accordion-body">
-                    <select class="form-select">
-                      <option value>Select your country</option>
-                      <option value="Argentina">Argentina</option>
-                      <option value="Belgium">Belgium</option>
-                      <option value="France">France</option>
-                      <option value="Germany">Germany</option>
-                      <option value="Spain">Spain</option>
-                      <option value="UK">United Kingdom</option>
-                      <option value="USA">USA</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
+
             </div>
 
+
+
             <!-- Add to cart -->
-            <form method="POST" class="mb-4">
+            <form method="POST" class="mb-4 d-flex align-items-center">
+              <input type="number" name="quantity" min="1" max="<?= $product_quantity ?>" value="1"
+                class="form-control me-3" style="width: 5rem;">
               <button class="btn btn-primary btn-shadow d-block w-100" type="submit" name="add_to_cart"> <i
                   class="ci-cart fs-lg me-2"></i>Add to Cart</button>
             </form>
@@ -328,169 +407,17 @@ $product_category = get_product_category($pdo, $product['product_category_id']);
       </div>
     </div>
   </div>
+
   <!-- Product description section 1-->
-  <div class="row align-items-center py-md-3">
-    <div class="col-lg-5 col-md-6 offset-lg-1 order-md-2"><img class="d-block rounded-3"
-        src="img/shop/single/prod-img.jpg" alt="Image"></div>
-    <div class="col-lg-4 col-md-6 offset-lg-1 py-4 order-md-1">
-      <h2 class="h3 mb-4 pb-2">High quality materials</h2>
-      <h6 class="fs-base mb-3">Soft cotton blend</h6>
-      <p class="fs-sm text-muted pb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit.</p>
-      <h6 class="fs-base mb-3">Washing instructions</h6>
-      <ul class="nav nav-tabs mb-3" role="tablist">
-        <li class="nav-item"><a class="nav-link active" href="#wash" data-bs-toggle="tab" role="tab"><i
-              class="ci-wash fs-xl"></i></a></li>
-        <li class="nav-item"><a class="nav-link" href="#bleach" data-bs-toggle="tab" role="tab"><i
-              class="ci-bleach fs-xl"></i></a></li>
-        <li class="nav-item"><a class="nav-link" href="#hand-wash" data-bs-toggle="tab" role="tab"><i
-              class="ci-hand-wash fs-xl"></i></a></li>
-        <li class="nav-item"><a class="nav-link" href="#ironing" data-bs-toggle="tab" role="tab"><i
-              class="ci-ironing fs-xl"></i></a></li>
-        <li class="nav-item"><a class="nav-link" href="#dry-clean" data-bs-toggle="tab" role="tab"><i
-              class="ci-dry-clean fs-xl"></i></a></li>
-      </ul>
-      <div class="tab-content text-muted fs-sm">
-        <div class="tab-pane fade show active" id="wash" role="tabpanel">30° mild machine washing</div>
-        <div class="tab-pane fade" id="bleach" role="tabpanel">Do not use any bleach</div>
-        <div class="tab-pane fade" id="hand-wash" role="tabpanel">Hand wash normal (30°)</div>
-        <div class="tab-pane fade" id="ironing" role="tabpanel">Low temperature ironing</div>
-        <div class="tab-pane fade" id="dry-clean" role="tabpanel">Do not dry clean</div>
-      </div>
+  <div class="flex col align-items-center py-md-3 tns-carousel tns-controls-outside">
+    <div class="py-4 order-md-1">
+      <h2 class="h3 mb-4 pb-2">Description</h2>
+      <p class="fs-sm text-muted pb-2"><?= $product_description ?></p>
     </div>
   </div>
-  <!-- Product description section 2-->
-  <div class="row align-items-center py-4 py-lg-5">
-    <div class="col-lg-5 col-md-6 offset-lg-1"><img class="d-block rounded-3" src="img/shop/single/prod-map.png"
-        alt="Map"></div>
-    <div class="col-lg-4 col-md-6 offset-lg-1 py-4">
-      <h2 class="h3 mb-4 pb-2">Where is it made?</h2>
-      <h6 class="fs-base mb-3">Apparel Manufacturer, Ltd.</h6>
-      <p class="fs-sm text-muted pb-2">​Sam Tower, 6 Road No 32, Dhaka 1875, Bangladesh</p>
-      <div class="d-flex mb-2">
-        <div class="me-4 pe-2 text-center">
-          <h4 class="h2 text-accent mb-1">3258</h4>
-          <p>Workers</p>
-        </div>
-        <div class="me-4 pe-2 text-center">
-          <h4 class="h2 text-accent mb-1">43%</h4>
-          <p>Female</p>
-        </div>
-        <div class="text-center">
-          <h4 class="h2 text-accent mb-1">57%</h4>
-          <p>Male</p>
-        </div>
-      </div>
-      <h6 class="fs-base mb-3">Factory information</h6>
-      <p class="fs-sm text-muted pb-md-2">​Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore.</p>
-    </div>
-  </div>
-</div>
-<!-- Product carousel (You may also like)-->
-<div class="container py-5 my-md-3">
-  <h2 class="h3 text-center pb-4">You may also like</h2>
-  <div class="tns-carousel tns-controls-static tns-controls-outside">
-    <div class="tns-carousel-inner"
-      data-carousel-options="{&quot;items&quot;: 2, &quot;controls&quot;: true, &quot;nav&quot;: false, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;500&quot;:{&quot;items&quot;:2, &quot;gutter&quot;: 18},&quot;768&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 20}, &quot;1100&quot;:{&quot;items&quot;:4, &quot;gutter&quot;: 30}}}">
-      <!-- Product-->
-      <div>
-        <div class="card product-card card-static">
-          <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left"
-            title="Add to wishlist"><i class="ci-heart"></i></button><a class="card-img-top d-block overflow-hidden"
-            href="#"><img src="img/shop/catalog/20.jpg" alt="Product"></a>
-          <div class="card-body py-2"><a class="product-meta d-block fs-xs pb-1" href="#">Men’s Hoodie</a>
-            <h3 class="product-title fs-sm"><a href="#">Block-colored Hooded Top</a></h3>
-            <div class="d-flex justify-content-between">
-              <div class="product-price"><span class="text-accent">$24.<small>99</small></span></div>
-              <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i
-                  class="star-rating-icon ci-star-filled active"></i><i
-                  class="star-rating-icon ci-star-filled active"></i><i
-                  class="star-rating-icon ci-star-half active"></i><i class="star-rating-icon ci-star"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Product-->
-      <div>
-        <div class="card product-card card-static">
-          <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left"
-            title="Add to wishlist"><i class="ci-heart"></i></button><a class="card-img-top d-block overflow-hidden"
-            href="#"><img src="img/shop/catalog/21.jpg" alt="Product"></a>
-          <div class="card-body py-2"><a class="product-meta d-block fs-xs pb-1" href="#">Men’s Hoodie</a>
-            <h3 class="product-title fs-sm"><a href="#">Block-colored Hooded Top</a></h3>
-            <div class="d-flex justify-content-between">
-              <div class="product-price text-accent">$26.<small>99</small></div>
-              <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i
-                  class="star-rating-icon ci-star-filled active"></i><i
-                  class="star-rating-icon ci-star-filled active"></i><i
-                  class="star-rating-icon ci-star-filled active"></i><i
-                  class="star-rating-icon ci-star-filled active"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Product-->
-      <div>
-        <div class="card product-card card-static">
-          <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left"
-            title="Add to wishlist"><i class="ci-heart"></i></button><a class="card-img-top d-block overflow-hidden"
-            href="#"><img src="img/shop/catalog/22.jpg" alt="Product"></a>
-          <div class="card-body py-2"><a class="product-meta d-block fs-xs pb-1" href="#">Men’s Hoodie</a>
-            <h3 class="product-title fs-sm"><a href="#">Block-colored Hooded Top</a></h3>
-            <div class="d-flex justify-content-between">
-              <div class="product-price text-accent">$24.<small>99</small></div>
-              <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i
-                  class="star-rating-icon ci-star-filled active"></i><i
-                  class="star-rating-icon ci-star-half active"></i><i class="star-rating-icon ci-star"></i><i
-                  class="star-rating-icon ci-star"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Product-->
-      <div>
-        <div class="card product-card card-static">
-          <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left"
-            title="Add to wishlist"><i class="ci-heart"></i></button><a class="card-img-top d-block overflow-hidden"
-            href="#"><img src="img/shop/catalog/23.jpg" alt="Product"></a>
-          <div class="card-body py-2"><a class="product-meta d-block fs-xs pb-1" href="#">Men’s Hoodie</a>
-            <h3 class="product-title fs-sm"><a href="#">Block-colored Hooded Top</a></h3>
-            <div class="d-flex justify-content-between">
-              <div class="product-price text-accent">$24.<small>99</small></div>
-              <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i
-                  class="star-rating-icon ci-star-filled active"></i><i
-                  class="star-rating-icon ci-star-filled active"></i><i
-                  class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Product-->
-      <div>
-        <div class="card product-card card-static">
-          <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left"
-            title="Add to wishlist"><i class="ci-heart"></i></button><a class="card-img-top d-block overflow-hidden"
-            href="#"><img src="img/shop/catalog/24.jpg" alt="Product"></a>
-          <div class="card-body py-2"><a class="product-meta d-block fs-xs pb-1" href="#">Men’s Hoodie</a>
-            <h3 class="product-title fs-sm"><a href="#">Block-colored Hooded Top</a></h3>
-            <div class="d-flex justify-content-between">
-              <div class="product-price text-accent">$25.<small>00</small></div>
-              <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i
-                  class="star-rating-icon ci-star-filled active"></i><i
-                  class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star"></i><i
-                  class="star-rating-icon ci-star"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
 </div>
 
+
+<?php include './sections/similar_products.php'; ?>
 <?php include './templates/footer.php'; ?>
