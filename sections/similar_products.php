@@ -29,25 +29,33 @@
                     <!-- Product-->
                     <div>
                         <div class="card product-card card-static">
-                            <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left"
-                                title="Add to wishlist"><i class="ci-heart"></i></button><a
-                                class="card-img-top d-block overflow-hidden" href="#"><img src="<?= $similar_product_img ?>"
-                                    alt="Product"></a>
-                            <div class="card-body py-2"><a class="product-meta d-block fs-xs pb-1"
-                                    href="#"><?= $similar_product_name ?></a>
-                                <h3 class="product-title fs-sm"><a href="#"><?= $similar_product_slug ?></a></h3>
-                                <div class="d-flex justify-content-between">
-                                    <div class="product-price"><span class="text-accent">₱
-                                            <?= $similar_product_price ?>
-                                        </span></div>
-                                    <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i
+
+                            <a class="card-img-top d-block overflow-hidden"
+                                href="<?= BASE_URL . "product.php?id=" . $similar_product_id . "&slug=" . $similar_product_slug ?>">
+                                <img src="<?= $similar_product_img ?>" alt="<?= $similar_product_name ?>">
+                                <div class="card-body py-2">
+                                    <span class="product-meta d-block fs-xs pb-1"><?= $similar_product_name ?>
+                                    </span>
+                                    <h3 class="product-title fs-sm">
+                                        <span><?= $similar_product_slug ?></span>
+                                    </h3>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="product-price">
+                                            <span class="text-accent">
+                                                ₱<?= $similar_product_price ?>
+                                            </span>
+                                        </div>
+                                        <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip"
+                                            data-bs-placement="left" title="Add to wishlist"><i class="ci-heart"></i></button>
+                                        <!-- <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i
                                             class="star-rating-icon ci-star-filled active"></i><i
                                             class="star-rating-icon ci-star-filled active"></i><i
                                             class="star-rating-icon ci-star-half active"></i><i
                                             class="star-rating-icon ci-star"></i>
+                                    </div> -->
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
 
