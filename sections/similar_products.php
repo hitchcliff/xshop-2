@@ -5,7 +5,7 @@
             data-carousel-options="{&quot;items&quot;: 2, &quot;controls&quot;: true, &quot;nav&quot;: false, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;500&quot;:{&quot;items&quot;:2, &quot;gutter&quot;: 18},&quot;768&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 20}, &quot;1100&quot;:{&quot;items&quot;:4, &quot;gutter&quot;: 30}}}">
             <?php
             $category_id = $product['product_category_id']; // Get the category ID of the current product
-
+            
             $sql = "SELECT * FROM products WHERE product_category_id='$category_id' LIMIT 8";
             $query = $pdo->query($sql);
 
@@ -21,6 +21,9 @@
                     $similar_product_sale_price = $products[$i]['sale_price'];
                     $similar_product_img = ADMIN_URL . get_photo($products[$i]['featured_photo']);
 
+                    if ($similar_product_id == $product['id']) {
+                        continue; // Skip the current product
+                    }
                     ?>
 
                     <!-- Product-->
